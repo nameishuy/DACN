@@ -4,13 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_account.xml" value="0.2703125" />
+        <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_back.xml" value="0.18125" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_baseline_lock_open_24.xml" value="0.2703125" />
+        <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_launcher_background.xml" value="0.18125" />
+        <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_password.xml" value="0.18125" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_wave.xml" value="0.2703125" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/round_bg.xml" value="0.2703125" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/round_bgbutton.xml" value="0.14635416666666667" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/round_border.xml" value="0.2703125" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/GitHub/DACN/app/src/main/res/layout/activity_register.xml" value="0.2" />
       </map>
     </option>
   </component>

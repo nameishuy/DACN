@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">WeCooked</string>
-    <string name="btn_login">Login</string>
+    <string name="btn_login">Đăng Nhập</string>
+    <string name="btn_register">Đăng Ký</string>
+    <string name="txt_username">Tài Khoản</string>
+    <string name="txt_pass">Mật Khẩu</string>
+    <string name="txt_confpass">Xác Nhận Mật Khẩu</string>
 </resources>
