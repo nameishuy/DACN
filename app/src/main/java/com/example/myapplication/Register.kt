@@ -8,7 +8,6 @@ import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.activity_register.inputNameAccount
 import kotlinx.android.synthetic.main.activity_register.inputPassword
 
-const val BASE_URL = "https://cookingapp-api.herokuapp.com/api/"
 class Register : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

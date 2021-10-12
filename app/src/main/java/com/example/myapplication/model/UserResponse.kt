@@ -2,8 +2,12 @@ package com.example.myapplication.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 class UserResponse {
+    @SerializedName("message")
+    @Expose
+    var msg:String? = null
     @SerializedName("data")
     @Expose
     var data:User? = null

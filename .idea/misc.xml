@@ -6,15 +6,22 @@
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_account.xml" value="0.2703125" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_back.xml" value="0.18125" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_baseline_lock_open_24.xml" value="0.2703125" />
+        <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_fullname.xml" value="0.14270833333333333" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_launcher_background.xml" value="0.18125" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_password.xml" value="0.18125" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_wave.xml" value="0.2703125" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/round_bg.xml" value="0.2703125" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/round_bgbutton.xml" value="0.14635416666666667" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/round_border.xml" value="0.2703125" />
+        <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/shadow_icon.xml" value="0.136" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/GitHub/DACN/app/src/main/res/layout/activity_menu.xml" value="0.13020833333333334" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/activity_register.xml" value="0.2" />
+        <entry key="..\:/GitHub/DACN/app/src/main/res/layout/app_bar_menu.xml" value="0.1265625" />
+        <entry key="..\:/GitHub/DACN/app/src/main/res/layout/content_menu.xml" value="0.13020833333333334" />
+        <entry key="..\:/GitHub/DACN/app/src/main/res/menu/activity_main_drawer.xml" value="0.536" />
+        <entry key="..\:/GitHub/DACN/app/src/main/res/menu/menu.xml" value="0.2" />
       </map>
     </option>
   </component>
