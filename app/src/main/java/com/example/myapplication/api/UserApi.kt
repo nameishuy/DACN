@@ -1,5 +1,6 @@
 package com.example.myapplication.api
 
+import com.example.myapplication.model.UserPost
 import com.example.myapplication.model.UserRequest
 import com.example.myapplication.model.UserResponse
 import retrofit2.Call
@@ -11,4 +12,8 @@ interface UserApi {
     fun login(
         @Body userRequest: UserRequest
     ):Call<UserResponse>
+    @POST("register")
+    fun Resgister(
+        @Body userPost: UserPost
+    ):Call<UserPost>
 }

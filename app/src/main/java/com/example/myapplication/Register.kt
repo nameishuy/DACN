@@ -3,10 +3,18 @@ package com.example.myapplication
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
+import com.example.myapplication.api.Retro
+import com.example.myapplication.api.UserApi
+import com.example.myapplication.model.UserPost
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.activity_register.inputNameAccount
 import kotlinx.android.synthetic.main.activity_register.inputPassword
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class Register : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +34,8 @@ class Register : AppCompatActivity() {
             val nameAccount = inputNameAccount.text.toString().trim()
             val Pass = inputPassword.text.toString().trim()
             val confirmPass = inputConfirmPassword.text.toString().trim()
+            val fullNameFrm=inputFullName.text.toString().trim()
+            val i:Intent= Intent(this,Login::class.java)
 
             if (nameAccount.isEmpty()){
                 inputNameAccount.error = "Account Name is Required"
@@ -42,6 +52,49 @@ class Register : AppCompatActivity() {
                 inputConfirmPassword.requestFocus()
                 return@setOnClickListener
             }
+            if(Pass.equals(confirmPass)==false){
+                inputConfirmPassword.error = "Mật khẩu nhập lại không trùng khớp"
+                inputConfirmPassword.requestFocus()
+                return@setOnClickListener
+            }
+            if(fullNameFrm.isEmpty()){
+                inputFullName.error="Tên bị bỏ trống"
+                inputFullName.requestFocus()
+                return@setOnClickListener
+            }
+            if (nameAccount.isEmpty()){
+                inputNameAccount.error = "Account Name is Required"
+                inputNameAccount.requestFocus()
+                return@setOnClickListener
+            }
+            //Phần đăng ký tài khoản
+            val retro = Retro().getRetroClientInstance().create(UserApi::class.java)
+            val userPost= UserPost(""+nameAccount,""+Pass,
+                ""+confirmPass,""+fullNameFrm)
+
+            val call=retro.Resgister(userPost)
+            call.enqueue(object: Callback<UserPost> {
+                override fun onResponse(call: Call<UserPost>?, response: Response<UserPost>?) {
+                    if (response != null) {
+                        if(response.isSuccessful){
+                            Toast.makeText(applicationContext,"Đăng Ký Thành Công"
+                                , Toast.LENGTH_LONG).show()
+                            startActivity(i)
+                        }else{
+                            Toast.makeText(applicationContext,"Đăng Ký Thất Bại"
+                                , Toast.LENGTH_LONG).show()
+                            Log.e("Lỗi 1",":"+response.message())
+                        }
+                    }
+                }
+                override fun onFailure(call: Call<UserPost>?, t: Throwable?) {
+                    if (t != null) {
+                        Toast.makeText(applicationContext,"Đăng Ký Thất Bại"+t.message, Toast.LENGTH_LONG).show()
+                        Log.e("Lỗi 1",":"+t.message)
+                    }
+                }
+
+            })
         }
     }
 }
