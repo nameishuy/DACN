@@ -20,23 +20,27 @@ class Register : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-
-        //getMyData()
-        //Set event click back to Login Layout
+        initAction()
+    }
+    //getMyData()
+    //Set event click back to Login Layout
+    fun initAction(){
         btnBack.setOnClickListener{
             val i:Intent= Intent(this,Login::class.java)
             startActivity(i)
             finish()
         }
+        Register()
+    }
 
-        // Check empty values
+    fun Register(){
         btnRegister.setOnClickListener(){
             val nameAccount = inputNameAccount.text.toString().trim()
             val Pass = inputPassword.text.toString().trim()
             val confirmPass = inputConfirmPassword.text.toString().trim()
             val fullNameFrm=inputFullName.text.toString().trim()
             val i:Intent= Intent(this,Login::class.java)
-
+            // Kiểm tra ràng buộc
             if (nameAccount.isEmpty()){
                 inputNameAccount.error = "Account Name is Required"
                 inputNameAccount.requestFocus()
@@ -62,11 +66,6 @@ class Register : AppCompatActivity() {
                 inputFullName.requestFocus()
                 return@setOnClickListener
             }
-            if (nameAccount.isEmpty()){
-                inputNameAccount.error = "Account Name is Required"
-                inputNameAccount.requestFocus()
-                return@setOnClickListener
-            }
             //Phần đăng ký tài khoản
             val retro = Retro().getRetroClientInstance().create(UserApi::class.java)
             val userPost= UserPost(""+nameAccount,""+Pass,
@@ -90,7 +89,7 @@ class Register : AppCompatActivity() {
                 override fun onFailure(call: Call<UserPost>?, t: Throwable?) {
                     if (t != null) {
                         Toast.makeText(applicationContext,"Đăng Ký Thất Bại"+t.message, Toast.LENGTH_LONG).show()
-                        Log.e("Lỗi 1",":"+t.message)
+                        Log.e("Lỗi 2",":"+t.message)
                     }
                 }
 
