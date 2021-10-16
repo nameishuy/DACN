@@ -21,9 +21,12 @@ class UserResponse {
             @SerializedName("id")
             @Expose
             var id:Int? = null
-            @SerializedName("fullname")
+            @SerializedName("fullName")
             @Expose
-            var fullname:String? = null
+            var fullName:String? = null
+            @SerializedName("roleId")
+            @Expose
+            var roleId:Int? = null
         }
     }
 }

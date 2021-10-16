@@ -13,7 +13,10 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".Menu"
+            android:name=".MenuFood"
+            android:exported="true" />
+        <activity
+            android:name=".DontTouch.Menu"
             android:exported="true"
             android:label="@string/title_activity_menu"
             android:theme="@style/Theme.MyApplication.NoActionBar" />

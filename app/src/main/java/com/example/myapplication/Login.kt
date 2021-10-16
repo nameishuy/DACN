@@ -12,7 +12,6 @@ import com.example.myapplication.model.UserResponse
 import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Call
 import retrofit2.Response
-import javax.security.auth.callback.Callback
 
 class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +33,7 @@ class Login : AppCompatActivity() {
     //Login function check api
     fun login(){
         btnLogin.setOnClickListener(){
-            val i: Intent = Intent(this, Menu::class.java)
+            val i: Intent = Intent(this, MenuFood::class.java)
             // values on textfield
             val nameAccount = inputNameAccount.text.toString().trim()
             val Pass = inputPassword.text.toString().trim()
@@ -73,11 +72,13 @@ class Login : AppCompatActivity() {
                         //This line summary is announcing that you need to add Role data for project
                         //When a member of your team has already add role on our API
                         var token:String = user!!.data?.token.toString()
-                        var fullname:String = user!!.data?.account!!.fullname.toString()
+                        var fullname:String = user!!.data?.account!!.fullName.toString()
                         var id:String = user!!.data?.account!!.id.toString()
+                        var roleId:String = user!!.data?.account!!.roleId.toString()
                         i.putExtra("token",token)
                         i.putExtra("fullname",fullname)
                         i.putExtra("id",id)
+                        i.putExtra("roleId",roleId)
                         startActivity(i)
                     }
                 }
