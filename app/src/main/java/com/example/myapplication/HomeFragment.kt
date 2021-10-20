@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.nav_header_menu.view.*
 
 class HomeFragment : Fragment() {
 
@@ -17,7 +18,6 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-
         return view
     }
 
@@ -49,15 +49,23 @@ class HomeFragment : Fragment() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        carouselView()
+    }
+
     fun carouselView(){
         var slide:IntArray = intArrayOf(
             R.drawable.slide1,
             R.drawable.slide2,
             R.drawable.slide3
         )
-        carouselView.pageCount = slide.size
+
+        //for this problem, follow this link:
+        //https://github.com/sayyam/carouselview/issues/43
         carouselView.setImageListener { position, imageView ->
             imageView.setImageResource(slide[position])
         }
+        carouselView.pageCount = slide.size
     }
 }
