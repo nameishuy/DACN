@@ -2,8 +2,10 @@ package com.example.myapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
+import com.example.myapplication.HomeFragment.Companion.newInstance
 import kotlinx.android.synthetic.main.activity_menu_food.*
 
 class MenuFood : AppCompatActivity() {
