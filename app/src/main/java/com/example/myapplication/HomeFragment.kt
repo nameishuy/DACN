@@ -8,10 +8,21 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.nav_header_menu.view.*
+import kotlin.math.log
 
 class HomeFragment : Fragment() {
 
     val glbl = Global()
+    var token:String?=null
+    var id:String?=null
+    var roleId:String?=null
+    var fullname:String?=null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        getData()
+        Log.e("state","onCreate")
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,6 +30,7 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+        Log.e("state","onCreateView")
         return view
     }
 
@@ -41,14 +53,53 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.e("state","onViewCreated")
+        if(savedInstanceState==null){
+            getData()
+            //set Textview
+            userName.text="Chào " + glbl.fullname
+            if(glbl.roleId.toString() == "1") {
+                roleName.text="Admin"
+            }else if(glbl.roleId.toString() == "2") {
+                roleName.text = "User"
+            }
+        }else{
+            Log.e("data",savedInstanceState.getString("fullname").toString())
+            userName.text="Chào " + savedInstanceState.getString("fullname")
+            if(savedInstanceState.getString("roleId") == "1") {
+                roleName.text="Admin"
+            }else if(savedInstanceState.getString("roleId") == "2") {
+                roleName.text = "User"
+            }
+        }
         carouselView()
-        getData()
 
     }
 
+
+
     override fun onResume() {
         super.onResume()
-        carouselView()
+        getData()
+        //set Textview
+        userName.text="Chào " + glbl.fullname
+        if(glbl.roleId.toString() == "1") {
+            roleName.text="Admin"
+        }else if(glbl.roleId.toString() == "2") {
+            roleName.text = "User"
+        }
+        Log.e("state","onResume")
+    }
+
+
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("token",glbl.token)
+        outState.putString("id",glbl.id)
+        outState.putString("fullname",glbl.fullname)
+        outState.putString("roleId",glbl.roleId)
+        Log.e("state","onSaveInstanceState")
     }
 
     fun getData(){
@@ -69,12 +120,6 @@ class HomeFragment : Fragment() {
             glbl.roleId = bundle!!.getString("roleId")
             Log.e("data",glbl.roleId.toString())
         }
-
-        //set Textview
-        if(glbl.id == "1") roleName.text="Admin"
-        else roleName.text="User"
-
-        userName.text="Chào " + glbl.fullname
     }
 
     fun carouselView(){

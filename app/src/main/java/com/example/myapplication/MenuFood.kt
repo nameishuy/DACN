@@ -11,26 +11,6 @@ class MenuFood : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_food)
         initBottomNavigation() // init bottom navigation
-        getDataUser() // get Data User from Login Activity
-    }
-
-    fun getDataUser(){
-        // This is Data of User when they login in and come to this activity
-        val i = intent
-        var token:String = i.getStringExtra("token").toString()
-        var fullname:String = i.getStringExtra("fullname").toString()
-        var id:String = i.getStringExtra("id").toString()
-        var roleId:String = i.getStringExtra("roleId").toString()
-
-        // Send to Home Fragment
-        val bundle = Bundle()
-        bundle.putString("token",token)
-        bundle.putString("fullname",fullname)
-        bundle.putString("id",id)
-        bundle.putString("roleId",roleId)
-        val fragment = HomeFragment()
-        fragment.arguments = bundle
-        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer,fragment).commit()
     }
 
     fun initBottomNavigation(){
@@ -59,6 +39,20 @@ class MenuFood : AppCompatActivity() {
     }
 
     private fun addFragment(fragment:Fragment){
+        // This is Data of User when they login in and come to this activity
+        val i = intent
+        var token:String = i.getStringExtra("token").toString()
+        var fullname:String = i.getStringExtra("fullname").toString()
+        var id:String = i.getStringExtra("id").toString()
+        var roleId:String = i.getStringExtra("roleId").toString()
+
+        // Send to Fragment
+        val bundle = Bundle()
+        bundle.putString("token",token)
+        bundle.putString("fullname",fullname)
+        bundle.putString("id",id)
+        bundle.putString("roleId",roleId)
+        fragment.arguments = bundle
         val fragmentTransition = supportFragmentManager.beginTransaction()
         fragmentTransition.replace(R.id.fragmentContainer,fragment).addToBackStack(Fragment::class.java.simpleName).commit()
     }
