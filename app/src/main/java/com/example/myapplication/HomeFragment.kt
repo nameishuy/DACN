@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.nav_header_menu.view.*
 
 class HomeFragment : Fragment() {
 
+    val glbl = Global()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,17 +42,39 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         carouselView()
-        val bundle = arguments
-        var token:String = bundle!!.get("token").toString()
-        //var fullname:String = data!!.getString("fullname") Lỗi ở chỗ này, do Log nó ra tận 2 cái String 1 cái là null và 1 cái là dữ liệu đúng của nó
-        // Vì là 2 String nên khó lưu theo kiểu String
-        Log.e("token",token)
+        getData()
 
     }
 
     override fun onResume() {
         super.onResume()
         carouselView()
+    }
+
+    fun getData(){
+        val bundle = arguments
+        if(bundle!!.getString("token") != null){
+            glbl.token = bundle!!.getString("token")
+            Log.e("data",glbl.token.toString())
+        }
+        if(bundle!!.getString("fullname") != null){
+            glbl.fullname = bundle!!.getString("fullname")
+            Log.e("data",glbl.fullname.toString())
+        }
+        if(bundle!!.getString("id") != null){
+            glbl.id = bundle!!.getString("id")
+            Log.e("data",glbl.id.toString())
+        }
+        if(bundle!!.getString("roleId") != null){
+            glbl.roleId = bundle!!.getString("roleId")
+            Log.e("data",glbl.roleId.toString())
+        }
+
+        //set Textview
+        if(glbl.id == "1") roleName.text="Admin"
+        else roleName.text="User"
+
+        userName.text="Chào " + glbl.fullname
     }
 
     fun carouselView(){
