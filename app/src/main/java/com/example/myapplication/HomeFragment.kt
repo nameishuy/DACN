@@ -61,7 +61,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         Log.e("state","onViewCreated")
         if(savedInstanceState==null){
-            getData()
+            getData() // API get info account
             //set Textview
             userName.text="Chào " + glbl.fullname
             if(glbl.roleId.toString() == "1") {
@@ -79,10 +79,10 @@ class HomeFragment : Fragment() {
             }
         }
         carouselView()
-        layoutManager = LinearLayoutManager(this.context,LinearLayoutManager.HORIZONTAL,false)
-        recyclerViewFoodTypes.layoutManager = layoutManager
-        adapter = RecyclerViewAdapter()
-        recyclerViewFoodTypes.adapter = adapter
+
+        //He is my Savior !!!
+        //Link: https://www.youtube.com/watch?v=FiqiIJNALFs
+        getAPI() //get data list food types to recycler view
     }
 
 
@@ -134,5 +134,25 @@ class HomeFragment : Fragment() {
             imageView.setImageResource(slide[position])
         }
         carouselView.pageCount = slide.size
+    }
+
+    fun getAPI(){
+        //Call API List Food Types
+        val retro = Retro().getRetroClientInstance().create(API::class.java)
+        retro.getData().enqueue(object : retrofit2.Callback<FoodTypeResponse>{
+            override fun onResponse(
+                call: Call<FoodTypeResponse>,
+                response: Response<FoodTypeResponse>
+            ) {
+                layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+                recyclerViewFoodTypes.layoutManager = layoutManager
+                adapter = RecyclerViewAdapter(response.body().listFoodTypes!!.size,response.body().listFoodTypes!!)
+                recyclerViewFoodTypes.adapter = adapter
+            }
+
+            override fun onFailure(call: Call<FoodTypeResponse>, t: Throwable) {
+                Log.e("Error", t.message!!)
+            }
+        })
     }
 }
