@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.example.myapplication.api.Retro
-import com.example.myapplication.api.UserApi
+import com.example.myapplication.api.API
 import com.example.myapplication.model.UserPost
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
@@ -67,7 +67,7 @@ class Register : AppCompatActivity() {
                 return@setOnClickListener
             }
             //Phần đăng ký tài khoản
-            val retro = Retro().getRetroClientInstance().create(UserApi::class.java)
+            val retro = Retro().getRetroClientInstance().create(API::class.java)
             val userPost= UserPost(""+nameAccount,""+Pass,
                 ""+confirmPass,""+fullNameFrm)
 

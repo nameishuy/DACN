@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="120dp"
+    android:layout_height="120dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginEnd="10dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="5dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="10dp">
+        <ImageView
+            android:id="@+id/iconFoodType"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/beef" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nameFoodType"
+            android:layout_below="@+id/iconFoodType"
+            android:text="Thịt Bò"
+            android:textSize="13sp"
+            android:padding="3dp"
+            android:layout_marginStart="-2dp"
+            android:textColor="@color/black"/>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

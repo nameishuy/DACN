@@ -6,21 +6,27 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.api.API
+import com.example.myapplication.api.Retro
+import com.example.myapplication.model.FoodTypeResponse
+import com.example.myapplication.model.RecyclerViewAdapter
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.nav_header_menu.view.*
-import kotlin.math.log
+import retrofit2.Call
+import retrofit2.Response
 
 class HomeFragment : Fragment() {
 
     val glbl = Global()
-    var token:String?=null
     var id:String?=null
-    var roleId:String?=null
-    var fullname:String?=null
+    private var layoutManager :RecyclerView.LayoutManager?=null
+    private var adapter :RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>?=null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        getData()
         Log.e("state","onCreate")
     }
 
@@ -73,24 +79,17 @@ class HomeFragment : Fragment() {
             }
         }
         carouselView()
-
+        layoutManager = LinearLayoutManager(this.context,LinearLayoutManager.HORIZONTAL,false)
+        recyclerViewFoodTypes.layoutManager = layoutManager
+        adapter = RecyclerViewAdapter()
+        recyclerViewFoodTypes.adapter = adapter
     }
-
 
 
     override fun onResume() {
         super.onResume()
-        getData()
-        //set Textview
-        userName.text="Chào " + glbl.fullname
-        if(glbl.roleId.toString() == "1") {
-            roleName.text="Admin"
-        }else if(glbl.roleId.toString() == "2") {
-            roleName.text = "User"
-        }
         Log.e("state","onResume")
     }
-
 
 
     override fun onSaveInstanceState(outState: Bundle) {

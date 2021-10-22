@@ -6,7 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.example.myapplication.api.Retro
-import com.example.myapplication.api.UserApi
+import com.example.myapplication.api.API
+import com.example.myapplication.model.FoodTypeResponse
 import com.example.myapplication.model.UserRequest
 import com.example.myapplication.model.UserResponse
 import kotlinx.android.synthetic.main.activity_login.*
@@ -54,7 +55,7 @@ class Login : AppCompatActivity() {
             val request = UserRequest()
             request.username = nameAccount
             request.pass = Pass
-            val retro = Retro().getRetroClientInstance().create(UserApi::class.java)
+            val retro = Retro().getRetroClientInstance().create(API::class.java)
             retro.login(request).enqueue(object : retrofit2.Callback<UserResponse>{
                 override fun onResponse(
                     call: Call<UserResponse>,
@@ -89,4 +90,5 @@ class Login : AppCompatActivity() {
             })
         }
     }
+
 }
