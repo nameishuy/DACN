@@ -12,16 +12,13 @@ import com.example.myapplication.Global
 import com.example.myapplication.R
 import com.example.myapplication.api.API
 import com.example.myapplication.api.Retro
+import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Response
 import kotlin.math.log
 
 class RecyclerViewAdapter(private val size:Int,private val list:List<FoodTypeResponse.FoodType>) :RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
-    val global=Global()
-    //Cause didn't have image yet, so i'll use some image which added in project.
-    private val img = intArrayOf(R.drawable.beef,R.drawable.chicken_leg
-        ,R.drawable.ham,R.drawable.fish,R.drawable.desert,R.drawable.cupcake)
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -31,8 +28,8 @@ class RecyclerViewAdapter(private val size:Int,private val list:List<FoodTypeRes
     }
 
         override fun onBindViewHolder(holder: RecyclerViewAdapter.ViewHolder, @SuppressLint("RecyclerView") position: Int) {
+            Picasso.get().load(list[position].image).into(holder.itemImage)
             holder.itemTitle.text = list[position].name
-            holder.itemImage.setImageResource(img[position])
         }
 
         override fun getItemCount() = size

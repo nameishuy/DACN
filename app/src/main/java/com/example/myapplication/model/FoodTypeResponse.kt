@@ -15,5 +15,8 @@ class FoodTypeResponse {
         @SerializedName("name")
         @Expose
         var name:String?=null
+        @SerializedName("image")
+        @Expose
+        var image:String?=null
     }
 }
