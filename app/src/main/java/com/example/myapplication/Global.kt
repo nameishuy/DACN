@@ -1,9 +1,7 @@
 package com.example.myapplication
 
 import android.app.Application
-import com.example.myapplication.model.FoodTypeResponse
-import com.google.gson.annotations.Expose
-import com.google.gson.annotations.SerializedName
+import com.example.myapplication.model.FoodTypes.FoodTypeResponse
 
 class Global:Application() {
     var token:String?=null

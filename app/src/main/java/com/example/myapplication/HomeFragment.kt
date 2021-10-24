@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.api.API
 import com.example.myapplication.api.Retro
-import com.example.myapplication.model.FoodTypeResponse
+import com.example.myapplication.model.FoodTypes.FoodTypeResponse
 import com.example.myapplication.model.RecyclerViewAdapter
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.nav_header_menu.view.*
@@ -27,7 +27,6 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.e("state","onCreate")
     }
 
     override fun onCreateView(
@@ -36,7 +35,6 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-        Log.e("state","onCreateView")
         return view
     }
 
@@ -59,7 +57,6 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.e("state","onViewCreated")
         if(savedInstanceState==null){
             getData() // API get info account
             //set Textview
@@ -70,7 +67,6 @@ class HomeFragment : Fragment() {
                 roleName.text = "User"
             }
         }else{
-            Log.e("data",savedInstanceState.getString("fullname").toString())
             userName.text="Chào " + savedInstanceState.getString("fullname")
             if(savedInstanceState.getString("roleId") == "1") {
                 roleName.text="Admin"
@@ -83,12 +79,6 @@ class HomeFragment : Fragment() {
         //He is my Savior !!!
         //Link: https://www.youtube.com/watch?v=FiqiIJNALFs
         getAPI() //get data list food types to recycler view
-    }
-
-
-    override fun onResume() {
-        super.onResume()
-        Log.e("state","onResume")
     }
 
 
@@ -146,7 +136,7 @@ class HomeFragment : Fragment() {
             ) {
                 layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
                 recyclerViewFoodTypes.layoutManager = layoutManager
-                adapter = RecyclerViewAdapter(response.body().listFoodTypes!!.size,response.body().listFoodTypes!!)
+                adapter = RecyclerViewAdapter(response.body().listFoodTypes!!)
                 recyclerViewFoodTypes.adapter = adapter
             }
 

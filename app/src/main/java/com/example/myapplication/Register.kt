@@ -7,7 +7,7 @@ import android.util.Log
 import android.widget.Toast
 import com.example.myapplication.api.Retro
 import com.example.myapplication.api.API
-import com.example.myapplication.model.UserPost
+import com.example.myapplication.model.User.UserPost
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.activity_register.inputNameAccount

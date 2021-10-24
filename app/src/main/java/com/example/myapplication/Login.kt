@@ -7,9 +7,8 @@ import android.util.Log
 import android.widget.Toast
 import com.example.myapplication.api.Retro
 import com.example.myapplication.api.API
-import com.example.myapplication.model.FoodTypeResponse
-import com.example.myapplication.model.UserRequest
-import com.example.myapplication.model.UserResponse
+import com.example.myapplication.model.User.UserRequest
+import com.example.myapplication.model.User.UserResponse
 import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Call
 import retrofit2.Response
