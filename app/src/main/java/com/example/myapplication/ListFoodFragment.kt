@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.RecyclerViewAdapter.RecyclerViewAdapterFoodTypes
@@ -85,7 +86,7 @@ class ListFoodFragment : Fragment() {
                 call: Call<ListFoodResponse>,
                 response: Response<ListFoodResponse>
             ) {
-                layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
+                layoutManager = GridLayoutManager(context,2,GridLayoutManager.VERTICAL,false)
                 recyclerViewFoods.layoutManager = layoutManager
                 adapter = RecyclerViewAdapterListFood(response.body().data!!.list!!)
                 recyclerViewFoods.adapter = adapter
