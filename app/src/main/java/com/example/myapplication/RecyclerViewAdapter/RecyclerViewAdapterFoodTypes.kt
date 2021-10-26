@@ -1,7 +1,8 @@
-package com.example.myapplication.model
+package com.example.myapplication.RecyclerViewAdapter
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,22 +12,23 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.Global
 import com.example.myapplication.ListFoodFragment
 import com.example.myapplication.R
 import com.example.myapplication.model.FoodTypes.FoodTypeResponse
 import com.squareup.picasso.Picasso
 
-class RecyclerViewAdapter(private val list:List<FoodTypeResponse.FoodType>) :RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
+class RecyclerViewAdapterFoodTypes(private val list:List<FoodTypeResponse.FoodType>,private val glbl:Global) :RecyclerView.Adapter<RecyclerViewAdapterFoodTypes.ViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): RecyclerViewAdapter.ViewHolder {
+    ): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.card_foodtype,parent,false)
         return ViewHolder(v)
     }
 
-        override fun onBindViewHolder(holder: RecyclerViewAdapter.ViewHolder, @SuppressLint("RecyclerView") position: Int) {
+        override fun onBindViewHolder(holder: ViewHolder, @SuppressLint("RecyclerView") position: Int) {
             Picasso.get().load(list[position].image).into(holder.itemImage)
             holder.itemTitle.text = list[position].name
             val id:Int = list[position].id!!
@@ -38,6 +40,11 @@ class RecyclerViewAdapter(private val list:List<FoodTypeResponse.FoodType>) :Rec
                     val bundle = Bundle()
                     bundle.putInt("idChoose",id)
                     bundle.putString("type",type)
+                    bundle.putString("token",glbl.token)
+                    bundle.putString("fullname",glbl.fullname)
+                    bundle.putString("id",glbl.id)
+                    bundle.putString("roleId",glbl.roleId)
+                    Log.e("data",glbl.roleId.toString())
                     val activity=v!!.context as AppCompatActivity
                     val ListFood = ListFoodFragment()
                     ListFood.arguments = bundle

@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.api.API
 import com.example.myapplication.api.Retro
 import com.example.myapplication.model.FoodTypes.FoodTypeResponse
-import com.example.myapplication.model.RecyclerViewAdapter
+import com.example.myapplication.RecyclerViewAdapter.RecyclerViewAdapterFoodTypes
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.nav_header_menu.view.*
 import retrofit2.Call
@@ -22,7 +22,7 @@ class HomeFragment : Fragment() {
     val glbl = Global()
     var id:String?=null
     private var layoutManager :RecyclerView.LayoutManager?=null
-    private var adapter :RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>?=null
+    private var adapter :RecyclerView.Adapter<RecyclerViewAdapterFoodTypes.ViewHolder>?=null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -136,7 +136,7 @@ class HomeFragment : Fragment() {
             ) {
                 layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
                 recyclerViewFoodTypes.layoutManager = layoutManager
-                adapter = RecyclerViewAdapter(response.body().listFoodTypes!!)
+                adapter = RecyclerViewAdapterFoodTypes(response.body().listFoodTypes!!,glbl)
                 recyclerViewFoodTypes.adapter = adapter
             }
 
