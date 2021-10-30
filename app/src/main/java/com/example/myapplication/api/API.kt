@@ -2,9 +2,7 @@ package com.example.myapplication.api
 
 import com.example.myapplication.model.FoodTypes.FoodTypeResponse
 import com.example.myapplication.model.ListFood.ListFoodResponse
-import com.example.myapplication.model.User.UserPost
-import com.example.myapplication.model.User.UserRequest
-import com.example.myapplication.model.User.UserResponse
+import com.example.myapplication.model.User.*
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -30,4 +28,17 @@ interface API {
     fun getList(
         @Query("foodId") foodId:Int?=null
     ):Call<ListFoodResponse>
+
+    //get user info
+    @GET("getAccountInfo")
+    fun getUserInfo(
+        @Query("id") idUser:Int?=null
+    ):Call<UserInfoResponse>
+
+    //Update user
+    @POST("updateAccount")
+    fun UpdateUser(
+        @Query("id") idUpUser:Int?=null,
+        @Body UpUser: UpdateInfoUserPost
+    ):Call<UpdateInfoUserPost>
 }
