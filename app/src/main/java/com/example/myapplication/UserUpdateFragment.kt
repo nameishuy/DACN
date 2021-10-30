@@ -77,6 +77,7 @@ class UserUpdateFragment : Fragment() {
         view.btnUpdateNewInfo.setOnClickListener {
             UpdateInfoUser()
         }
+
         view.btnBackToHome.setOnClickListener {
             ReturnHome()
         }
@@ -187,19 +188,19 @@ class UserUpdateFragment : Fragment() {
         if(bundle!!.getString("roleUpIdUser") != null){
             RoleUser = bundle!!.getString("roleUpIdUser")
         }
-        if(bundle!!.getString("fullNameUpUser") != null){
+        if(bundle!!.getString("fullNameUpUser").equals("null")==false){
             fullNameUser = bundle!!.getString("fullNameUpUser")
             inputUpNameInfo.setText(fullNameUser)
         }
-        if(bundle!!.getString("phoneNumUpUser") != null){
+        if(bundle!!.getString("phoneNumUpUser").equals("null")==false){
             PhoneNumUser =bundle!!.getString("phoneNumUpUser")
             inputUpPhoneNum.setText(PhoneNumUser)
         }
-        if(bundle!!.getString("birthDayUpUser") != null){
+        if(bundle!!.getString("birthDayUpUser").equals("null")==false){
             BirthDayUser=bundle!!.getString("birthDayUpUser")
             inputUpBirthDay.setText(BirthDayUser)
         }
-        if(bundle!!.getString("regionUpUser") != null){
+        if(bundle!!.getString("regionUpUser").equals("null")==false){
             RegionUser =bundle!!.getString("regionUpUser")
             inputUpRegionUser.setText(RegionUser)
         }

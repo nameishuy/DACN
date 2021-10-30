@@ -68,7 +68,7 @@ class UserFragment : Fragment() {
                 if (response != null) {
                     if(response.isSuccessful){
 
-                        if(info.data!!.fullName != null){
+                        if(info.data!!.fullName.equals("null")==false){
                             fullNameUser = info.data!!.fullName
                             UserName.text = fullNameUser
                             Log.e("data Name ",""+fullNameUser)
@@ -77,7 +77,7 @@ class UserFragment : Fragment() {
                             Log.e("data Name ",""+fullNameUser)
                         }
 
-                        if(info.data!!.phoneNumUser != null){
+                        if(info.data!!.phoneNumUser.equals("null")==false){
                             PhoneNumUser = info.data!!.phoneNumUser
                             UserPhone.text =PhoneNumUser
                             Log.e("data Phone",""+PhoneNumUser)
@@ -86,7 +86,7 @@ class UserFragment : Fragment() {
                             Log.e("data Phone",""+PhoneNumUser)
                         }
 
-                        if(info.data!!.birthdayUser != null){
+                        if(info.data!!.birthdayUser.equals("null")==false){
                             BirthDayUser = info.data!!.birthdayUser
                             UserBirtDay.text=BirthDayUser
                             Log.e("data Birth Day",""+BirthDayUser)
@@ -95,16 +95,16 @@ class UserFragment : Fragment() {
                             Log.e("data Birth Day ",""+BirthDayUser)
                         }
 
-                        if(info.data!!.regionUser != null){
+                        if(info.data!!.regionUser.equals("null")==false){
                             RegionUser = info.data!!.regionUser
                             UserRegion.text = RegionUser
-                            Log.e("data Region",""+RegionUser)
+                            Log.e("data Region  1",""+RegionUser)
                         }else{
-                            UserRegion.text = "Bạn chưa cập nhật ngày sinh"
-                            Log.e("data Region ",""+RegionUser)
+                            UserRegion.text = "Bạn chưa cập nhật địa chỉ"
+                            Log.e("data Region 2",""+RegionUser)
                         }
 
-                        if(info.data!!.imageUser != null){
+                        if(info.data!!.imageUser.equals("null")==false){
                             ImageUser = info.data!!.imageUser
                             Picasso.get().load(ImageUser).into(UserInfoImage)
                             Log.e("data Image",""+ImageUser)
