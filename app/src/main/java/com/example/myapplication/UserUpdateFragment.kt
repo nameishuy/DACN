@@ -259,6 +259,8 @@ class UserUpdateFragment : Fragment() {
                         if(response.isSuccessful){
                             Toast.makeText(activity,"Cập Nhật Thành Công"
                                 , Toast.LENGTH_LONG).show()
+                            fullNameUser = UpFullName
+                            ReturnHome()
                         }else{
                             Toast.makeText(activity,"Cập Nhật Thất Bại"
                                 , Toast.LENGTH_LONG).show()
