@@ -8,13 +8,16 @@
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_account.xml" value="0.2703125" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_back.xml" value="0.18125" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_baseline_lock_open_24.xml" value="0.2703125" />
+        <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_favorite.xml" value="0.17552083333333332" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_fullname.xml" value="0.14270833333333333" />
+        <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_home.xml" value="0.17552083333333332" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_launcher_background.xml" value="0.18125" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.18125" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_menu_camera.xml" value="0.17864583333333334" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.17864583333333334" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.17864583333333334" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_password.xml" value="0.18125" />
+        <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_phone.xml" value="0.17552083333333332" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/ic_wave.xml" value="0.2703125" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/infofood_card.xml" value="0.23541666666666666" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/round_bg.xml" value="0.2703125" />
@@ -33,6 +36,7 @@
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/card_listfood.xml" value="0.4" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/content_menu.xml" value="0.13020833333333334" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/fragment_favorite.xml" value="0.16510416666666666" />
+        <entry key="..\:/GitHub/DACN/app/src/main/res/layout/fragment_food.xml" value="0.264" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/fragment_gallery.xml" value="0.16510416666666666" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/fragment_home.xml" value="0.16510416666666666" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/fragment_home2.xml" value="0.1625" />

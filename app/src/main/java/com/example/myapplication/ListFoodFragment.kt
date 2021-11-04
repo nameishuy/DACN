@@ -88,7 +88,7 @@ class ListFoodFragment : Fragment() {
             ) {
                 layoutManager = GridLayoutManager(context,2,GridLayoutManager.VERTICAL,false)
                 recyclerViewFoods.layoutManager = layoutManager
-                adapter = RecyclerViewAdapterListFood(response.body().data!!.list!!)
+                adapter = RecyclerViewAdapterListFood(response.body().data!!.list!!,glbl.id,nameFoodType)
                 recyclerViewFoods.adapter = adapter
             }
 

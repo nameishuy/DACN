@@ -1,4 +1,4 @@
-package com.example.myapplication.model.FoodTypes
+package com.example.myapplication.model.ListFood
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

@@ -1,7 +1,7 @@
 package com.example.myapplication
 
 import android.app.Application
-import com.example.myapplication.model.FoodTypes.FoodTypeResponse
+import com.example.myapplication.model.ListFood.FoodTypeResponse
 
 class Global:Application() {
     var token:String?=null

@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.api.API
 import com.example.myapplication.api.Retro
-import com.example.myapplication.model.FoodTypes.FoodTypeResponse
+import com.example.myapplication.model.ListFood.FoodTypeResponse
 import com.example.myapplication.RecyclerViewAdapter.RecyclerViewAdapterFoodTypes
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.nav_header_menu.view.*
@@ -58,7 +58,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if(savedInstanceState==null){
-            getData() // API get info account
+            getData()
             //set Textview
             userName.text="Chào " + glbl.fullname
             if(glbl.roleId.toString() == "1") {
