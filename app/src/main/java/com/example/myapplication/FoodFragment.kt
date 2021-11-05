@@ -45,8 +45,15 @@ class FoodFragment : Fragment() {
                 val data = response.body()
                 Picasso.get().load(data.data!!.infoFood!!.img.toString()).into(imgFood)
                 nameFood.text = data.data!!.infoFood!!.name.toString()
-                description.text = data.data!!.infoFood!!.description
                 titleFavoriteButton.text = "Thích (" + data.data!!.infoFood!!.totallike!! + ")"
+                description.text = data.data!!.infoFood!!.description
+                for(item:FoodResponse.recipe in data.data!!.listRecipes!!){
+                    if(item == data.data!!.listRecipes!![0]){
+                        recipe.append("\u2022 " + item.material + ":\t\t" + item.quantity)
+                    }else{
+                        recipe.append("\n\u2022 " + item.material + ":\t\t" + item.quantity)
+                    }
+                }
 
                 // set event click of like button
                 favoriteButton.setOnClickListener {
