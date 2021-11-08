@@ -56,9 +56,11 @@
                     app:cardElevation="30dp">
 
                     <ImageView
+                        android:id="@+id/avatarUser"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/avatar" />
+                        android:src="@drawable/avatar"
+                        android:scaleType="centerCrop"/>
                 </androidx.cardview.widget.CardView>
             </RelativeLayout>
 

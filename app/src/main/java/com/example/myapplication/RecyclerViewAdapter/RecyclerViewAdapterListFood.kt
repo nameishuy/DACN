@@ -18,7 +18,7 @@ import com.example.myapplication.R
 import com.example.myapplication.model.ListFood.ListFoodResponse
 import com.squareup.picasso.Picasso
 
-class RecyclerViewAdapterListFood(private val list:List<ListFoodResponse.Food>,private val userId:String?,private val nameFoodType:String?):RecyclerView.Adapter<RecyclerViewAdapterListFood.ViewHolder>() {
+class RecyclerViewAdapterListFood(private val list:List<ListFoodResponse.Food>,private var glbl:Global?,private val nameFoodType:String?,private val idFoodType:Int?):RecyclerView.Adapter<RecyclerViewAdapterListFood.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.card_listfood,parent,false)
         return ViewHolder(v)
@@ -34,8 +34,13 @@ class RecyclerViewAdapterListFood(private val list:List<ListFoodResponse.Food>,p
                 val bundle = Bundle()
                 bundle.putString("idFood",list[position].idFood.toString())
                 Log.e("data1",bundle.getString("idFood").toString())
-                bundle.putString("idUser",userId.toString())
+                bundle.putString("idUser",glbl!!.id.toString())
                 Log.e("data1",bundle.getString("idUser").toString())
+                bundle.putString("token", glbl!!.token)
+                bundle.putString("fullname", glbl!!.fullname)
+                bundle.putString("roleId", glbl!!.roleId)
+                bundle.putInt("idFoodType", idFoodType!!)
+                Log.e("data1",bundle.getInt("idFoodType").toString())
                 bundle.putString("typeFood",nameFoodType)
                 Log.e("data1",bundle.getString("typeFood").toString())
                 val activity=v!!.context as AppCompatActivity

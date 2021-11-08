@@ -26,6 +26,9 @@ class UserResponse {
             @SerializedName("roleId")
             @Expose
             var roleId:Int? = null
+            @SerializedName("image")
+            @Expose
+            var img:String? = null
         }
     }
 }

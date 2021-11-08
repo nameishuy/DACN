@@ -75,10 +75,12 @@ class Login : AppCompatActivity() {
                         var fullname:String = user!!.data?.account!!.fullName.toString()
                         var id:String = user!!.data?.account!!.id.toString()
                         var roleId:String = user!!.data?.account!!.roleId.toString()
+                        var img:String = user!!.data?.account!!.img.toString()
                         i.putExtra("token",token)
                         i.putExtra("fullname",fullname)
                         i.putExtra("id",id)
                         i.putExtra("roleId",roleId)
+                        i.putExtra("img",img)
                         startActivity(i)
                     }
                 }

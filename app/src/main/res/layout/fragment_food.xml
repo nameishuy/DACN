@@ -24,6 +24,7 @@
                 android:elevation="5dp"
                 android:outlineAmbientShadowColor="@color/black"
                 android:outlineSpotShadowColor="@color/black"/>
+
             <ImageView
                 android:id="@+id/imgFood"
                 android:layout_width="match_parent"

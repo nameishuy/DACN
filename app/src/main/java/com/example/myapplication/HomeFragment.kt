@@ -12,6 +12,7 @@ import com.example.myapplication.api.API
 import com.example.myapplication.api.Retro
 import com.example.myapplication.model.ListFood.FoodTypeResponse
 import com.example.myapplication.RecyclerViewAdapter.RecyclerViewAdapterFoodTypes
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.nav_header_menu.view.*
 import retrofit2.Call
@@ -66,6 +67,11 @@ class HomeFragment : Fragment() {
             }else if(glbl.roleId.toString() == "2") {
                 roleName.text = "User"
             }
+            if(glbl.imgUser == null){
+                avatarUser.setImageResource(R.drawable.logo)
+            }else{
+                Picasso.get().load(glbl.imgUser).into(avatarUser)
+            }
         }else{
             userName.text="Chào " + savedInstanceState.getString("fullname")
             if(savedInstanceState.getString("roleId") == "1") {
@@ -108,6 +114,10 @@ class HomeFragment : Fragment() {
         if(bundle!!.getString("roleId") != null){
             glbl.roleId = bundle!!.getString("roleId")
             Log.e("data",glbl.roleId.toString())
+        }
+        if(bundle!!.getString("img") != null){
+            glbl.imgUser = bundle!!.getString("img")
+            Log.e("data",glbl.imgUser.toString())
         }
     }
 
