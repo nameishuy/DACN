@@ -1,8 +1,6 @@
 package com.example.myapplication.api
 
-import com.example.myapplication.model.ListFood.FoodResponse
-import com.example.myapplication.model.ListFood.FoodTypeResponse
-import com.example.myapplication.model.ListFood.ListFoodResponse
+import com.example.myapplication.model.ListFood.*
 import com.example.myapplication.model.User.*
 import retrofit2.Call
 import retrofit2.http.Body
@@ -40,6 +38,13 @@ interface API {
         @Query("id") id:Int?=null
     ):Call<FoodResponse>
 
+    //Update Total Like
+    @POST("updateTotalLike")
+    fun updateTotalLike(
+        @Query("id") id:Int?=null,
+        @Query("totallike") totallike:Int?=null
+    ):Call<ResponseSuccess>
+
     //get user info
     @GET("getAccountInfo")
     fun getUserInfo(
@@ -52,4 +57,23 @@ interface API {
         @Query("id") idUpUser:Int?=null,
         @Body UpUser: UpdateInfoUserPost
     ):Call<UpdateInfoUserPost>
+
+    //Get List Favorite
+    @GET("getDetailFavorite")
+    fun getListFavorite(
+        @Query("id") id:Int?=null
+    ):Call<ListFavorite>
+
+    //Add Favorite
+    @POST("addFavorite")
+    fun addFavorite(
+        @Body add:addFavorite
+    ):Call<ResponseSuccess>
+
+    //Remove Favorite
+    @POST("removeFavorite")
+    fun removeFavorite(
+        @Query("foodId") foodId:Int?=null,
+        @Query("accountId") idUser:Int?=null
+    ):Call<ResponseSuccess>
 }

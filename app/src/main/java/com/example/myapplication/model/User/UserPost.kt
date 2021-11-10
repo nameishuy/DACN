@@ -7,4 +7,4 @@ class UserPost (
     @SerializedName("password") val Pstpassword: String?,
     @SerializedName("confirmPassword") val PstConPassword: String?,
     @SerializedName("fullName") val PstFullName: String?
-        )
+    )
