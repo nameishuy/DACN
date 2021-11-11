@@ -24,6 +24,7 @@ class FoodFragment : Fragment() {
     var idFoodType:Int?=null
     var flag:Boolean = false
     val glbl = Global()
+    var area:String?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,18 +45,28 @@ class FoodFragment : Fragment() {
         //set event click button back
         btnBack.setOnClickListener(object :View.OnClickListener{
             override fun onClick(v: View?) {
-                val activity=v!!.context as AppCompatActivity
-                val ListFood = ListFoodFragment()
-                val bundle = Bundle()
-                ListFood.arguments = bundle
-                bundle.putInt("idChoose", idFoodType!!)
-                bundle.putString("type",nameFoodType)
-                bundle.putString("token",glbl.token)
-                bundle.putString("fullname",glbl.fullname)
-                bundle.putString("id",glbl.id)
-                bundle.putString("roleId",glbl.roleId)
-                activity.supportFragmentManager.beginTransaction()
-                    .replace(R.id.fragmentContainer,ListFood).addToBackStack(Fragment::class.java.simpleName).commit()
+                if(area == "ListFood"){
+                    val activity=v!!.context as AppCompatActivity
+                    val ListFood = ListFoodFragment()
+                    val bundle = Bundle()
+                    ListFood.arguments = bundle
+                    bundle.putInt("idChoose", idFoodType!!)
+                    bundle.putString("type",nameFoodType)
+                    bundle.putString("token",glbl.token)
+                    bundle.putString("fullname",glbl.fullname)
+                    bundle.putString("id",glbl.id)
+                    bundle.putString("roleId",glbl.roleId)
+                    activity.supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainer,ListFood).addToBackStack(Fragment::class.java.simpleName).commit()
+                }else if(area =="ListFavorite"){
+                    val activity=v!!.context as AppCompatActivity
+                    val Favorite = FavoriteFragment()
+                    val bundle = Bundle()
+                    Favorite.arguments = bundle
+                    bundle.putString("id",glbl.id)
+                    activity.supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainer,Favorite).addToBackStack(Fragment::class.java.simpleName).commit()
+                }
             }
         })
         val retro = Retro().getRetroClientInstance().create(API::class.java)
@@ -215,19 +226,23 @@ class FoodFragment : Fragment() {
 
     fun getData(){
         val bundle = arguments
+        area = bundle?.getString("area")
         glbl.id = bundle?.getString("idUser")!!.toIntOrNull().toString()
         Log.e("data2",glbl.id.toString())
-        glbl.token = bundle?.getString("token")
-        Log.e("data2",glbl.token.toString())
-        glbl.fullname = bundle?.getString("fullname")
-        Log.e("data2",glbl.fullname.toString())
-        glbl.roleId = bundle?.getString("roleId")
-        Log.e("data2",glbl.roleId.toString())
-        idFoodType = bundle?.getInt("idFoodType")
-        Log.e("data2",idFoodType.toString())
         idFood = bundle?.getString("idFood")!!.toIntOrNull()
         Log.e("data2",idFood.toString())
-        nameFoodType = bundle?.getString("typeFood")
-        typeFood.text = nameFoodType
+
+        if(area == "ListFood"){
+            idFoodType = bundle?.getInt("idFoodType")
+            Log.e("data2",idFoodType.toString())
+            nameFoodType = bundle?.getString("typeFood")
+            typeFood.text = nameFoodType
+            glbl.token = bundle?.getString("token")
+            Log.e("data2",glbl.token.toString())
+            glbl.fullname = bundle?.getString("fullname")
+            Log.e("data2",glbl.fullname.toString())
+            glbl.roleId = bundle?.getString("roleId")
+            Log.e("data2",glbl.roleId.toString())
+        }
     }
 }

@@ -28,33 +28,33 @@ class RecyclerViewAdapterFoodTypes(private val list:List<FoodTypeResponse.FoodTy
         return ViewHolder(v)
     }
 
-        override fun onBindViewHolder(holder: ViewHolder, @SuppressLint("RecyclerView") position: Int) {
-            Picasso.get().load(list[position].image).into(holder.itemImage)
-            holder.itemTitle.text = list[position].name
-            val id:Int = list[position].id!!
-            val type:String = list[position].name.toString()
+    override fun onBindViewHolder(holder: ViewHolder, @SuppressLint("RecyclerView") position: Int) {
+        Picasso.get().load(list[position].image).into(holder.itemImage)
+        holder.itemTitle.text = list[position].name
+        val id:Int = list[position].id!!
+        val type:String = list[position].name.toString()
 
-            //set event click listener
-            holder.cardView.setOnClickListener(object :View.OnClickListener{
-                override fun onClick(v: View?) {
-                    val bundle = Bundle()
-                    bundle.putInt("idChoose",id)
-                    bundle.putString("type",type)
-                    bundle.putString("token",glbl.token)
-                    bundle.putString("fullname",glbl.fullname)
-                    bundle.putString("id",glbl.id)
-                    bundle.putString("roleId",glbl.roleId)
-                    Log.e("data",glbl.roleId.toString())
-                    val activity=v!!.context as AppCompatActivity
-                    val ListFood = ListFoodFragment()
-                    ListFood.arguments = bundle
-                    activity.supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragmentContainer,ListFood).addToBackStack(Fragment::class.java.simpleName).commit()
-                }
-            })
-        }
+        //set event click listener
+        holder.cardView.setOnClickListener(object :View.OnClickListener{
+            override fun onClick(v: View?) {
+                val bundle = Bundle()
+                bundle.putInt("idChoose",id)
+                bundle.putString("type",type)
+                bundle.putString("token",glbl.token)
+                bundle.putString("fullname",glbl.fullname)
+                bundle.putString("id",glbl.id)
+                bundle.putString("roleId",glbl.roleId)
+                Log.e("data",glbl.roleId.toString())
+                val activity=v!!.context as AppCompatActivity
+                val ListFood = ListFoodFragment()
+                ListFood.arguments = bundle
+                activity.supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragmentContainer,ListFood).addToBackStack(Fragment::class.java.simpleName).commit()
+            }
+        })
+    }
 
-        override fun getItemCount() = list.size
+    override fun getItemCount() = list.size
 
     inner class ViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){
         var itemImage:ImageView

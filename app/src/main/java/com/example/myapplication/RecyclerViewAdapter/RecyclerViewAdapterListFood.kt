@@ -32,6 +32,8 @@ class RecyclerViewAdapterListFood(private val list:List<ListFoodResponse.Food>,p
         holder.cardView.setOnClickListener(object :View.OnClickListener{
             override fun onClick(v: View?) {
                 val bundle = Bundle()
+                var area:String = "ListFood"
+                bundle.putString("area",area)
                 bundle.putString("idFood",list[position].idFood.toString())
                 Log.e("data1",bundle.getString("idFood").toString())
                 bundle.putString("idUser",glbl!!.id.toString())
