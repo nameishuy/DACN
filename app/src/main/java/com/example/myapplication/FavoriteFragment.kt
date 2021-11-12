@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.RecyclerViewAdapter.RecyclerViewAdapterListFavorite
@@ -64,12 +65,20 @@ class FavoriteFragment : Fragment() {
         var listFavorite:Call<ListFavorite> = retro.getListFavorite(glbl.id!!.toInt())
         listFavorite.enqueue(object :retrofit2.Callback<ListFavorite>{
             override fun onResponse(call: Call<ListFavorite>, response: Response<ListFavorite>) {
-                //Get data from Menu Food Activity
 
-                layoutManager = GridLayoutManager(context,2,GridLayoutManager.VERTICAL,false)
-                recyclerViewListFavorite.layoutManager = layoutManager
-                adapter = RecyclerViewAdapterListFavorite(response.body().data!!.list!!,glbl.id!!)
-                recyclerViewListFavorite.adapter = adapter
+                //If list favorite null
+                if(response.body().data!!.list!!.size == 0){
+                    noFavorite.isVisible = true
+                    recyclerViewListFavorite.isVisible = false
+                }else{
+                    noFavorite.isVisible = false
+                    recyclerViewListFavorite.isVisible = true
+                    //Get data from Menu Food Activity
+                    layoutManager = GridLayoutManager(context,2,GridLayoutManager.VERTICAL,false)
+                    recyclerViewListFavorite.layoutManager = layoutManager
+                    adapter = RecyclerViewAdapterListFavorite(response.body().data!!.list!!,glbl.id!!)
+                    recyclerViewListFavorite.adapter = adapter
+                }
             }
 
             override fun onFailure(call: Call<ListFavorite>, t: Throwable) {
