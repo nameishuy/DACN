@@ -44,6 +44,12 @@ class UserFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getDataToHome()
+
+        //Set event click for Exit Button.
+        btnExit.setOnClickListener{
+            val i: Intent = Intent(this.context, Login::class.java)
+            startActivity(i)
+        }
     }
     private fun getDataToHome(){
         val bundle = arguments
