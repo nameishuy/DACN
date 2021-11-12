@@ -45,6 +45,8 @@ class MenuFood : AppCompatActivity() {
         var fullname:String = i.getStringExtra("fullname").toString()
         var id:String = i.getStringExtra("id").toString()
         var roleId:String = i.getStringExtra("roleId").toString()
+        var img:String = i.getStringExtra("img").toString()
+
 
         // Send to Fragment
         val bundle = Bundle()
@@ -52,6 +54,7 @@ class MenuFood : AppCompatActivity() {
         bundle.putString("fullname",fullname)
         bundle.putString("id",id)
         bundle.putString("roleId",roleId)
+        bundle.putString("img",img)
         fragment.arguments = bundle
         val fragmentTransition = supportFragmentManager.beginTransaction()
         fragmentTransition.replace(R.id.fragmentContainer,fragment).addToBackStack(Fragment::class.java.simpleName).commit()

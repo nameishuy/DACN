@@ -12,6 +12,7 @@ import com.example.myapplication.api.API
 import com.example.myapplication.api.Retro
 import com.example.myapplication.model.ListFood.FoodTypeResponse
 import com.example.myapplication.RecyclerViewAdapter.RecyclerViewAdapterFoodTypes
+import com.example.myapplication.model.User.UserInfoResponse
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.nav_header_menu.view.*
@@ -58,28 +59,34 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if(savedInstanceState==null){
-            getData()
-            //set Textview
-            userName.text="Chào " + glbl.fullname
-            if(glbl.roleId.toString() == "1") {
-                roleName.text="Admin"
-            }else if(glbl.roleId.toString() == "2") {
-                roleName.text = "User"
+        getData()
+
+        //Call API to get Info User
+        val retro = Retro().getRetroClientInstance().create(API::class.java)
+        var infoAccount:Call<UserInfoResponse> = retro.getUserInfo(glbl.id!!.toInt())
+        infoAccount.enqueue(object :retrofit2.Callback<UserInfoResponse>{
+            override fun onResponse(
+                call: Call<UserInfoResponse>,
+                response: Response<UserInfoResponse>
+            ) {
+                //set Textview
+                userName.text="Chào " + response.body().data!!.fullName
+                if(glbl.roleId.toString() == "1") {
+                    roleName.text="Admin"
+                }else if(glbl.roleId.toString() == "2") {
+                    roleName.text = "User"
+                }
+                if(response.body().data!!.imageUser == null){
+                    avatarUser.setImageResource(R.drawable.logo)
+                }else{
+                    Picasso.get().load(response.body().data!!.imageUser).into(avatarUser)
+                }
             }
-            if(glbl.imgUser == null){
-                avatarUser.setImageResource(R.drawable.logo)
-            }else{
-                Picasso.get().load(glbl.imgUser).into(avatarUser)
+
+            override fun onFailure(call: Call<UserInfoResponse>, t: Throwable) {
+                TODO("Not yet implemented")
             }
-        }else{
-            userName.text="Chào " + savedInstanceState.getString("fullname")
-            if(savedInstanceState.getString("roleId") == "1") {
-                roleName.text="Admin"
-            }else if(savedInstanceState.getString("roleId") == "2") {
-                roleName.text = "User"
-            }
-        }
+        })
         carouselView()
 
         //He is my Savior !!!
@@ -88,25 +95,9 @@ class HomeFragment : Fragment() {
     }
 
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putString("token",glbl.token)
-        outState.putString("id",glbl.id)
-        outState.putString("fullname",glbl.fullname)
-        outState.putString("roleId",glbl.roleId)
-        Log.e("state","onSaveInstanceState")
-    }
-
     fun getData(){
         val bundle = arguments
-        if(bundle!!.getString("token") != null){
-            glbl.token = bundle!!.getString("token")
-            Log.e("data",glbl.token.toString())
-        }
-        if(bundle!!.getString("fullname") != null){
-            glbl.fullname = bundle!!.getString("fullname")
-            Log.e("data",glbl.fullname.toString())
-        }
+
         if(bundle!!.getString("id") != null){
             glbl.id = bundle!!.getString("id")
             Log.e("data",glbl.id.toString())
@@ -115,10 +106,7 @@ class HomeFragment : Fragment() {
             glbl.roleId = bundle!!.getString("roleId")
             Log.e("data",glbl.roleId.toString())
         }
-        if(bundle!!.getString("img") != null){
-            glbl.imgUser = bundle!!.getString("img")
-            Log.e("data",glbl.imgUser.toString())
-        }
+
     }
 
     fun carouselView(){

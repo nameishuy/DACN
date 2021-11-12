@@ -76,6 +76,7 @@ class Login : AppCompatActivity() {
                         var id:String = user!!.data?.account!!.id.toString()
                         var roleId:String = user!!.data?.account!!.roleId.toString()
                         var img:String = user!!.data?.account!!.img.toString()
+                        var area:String = "Login"
                         i.putExtra("token",token)
                         i.putExtra("fullname",fullname)
                         i.putExtra("id",id)

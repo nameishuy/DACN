@@ -108,6 +108,8 @@ class UserFragment : Fragment() {
                             ImageUser = info.data!!.imageUser
                             Picasso.get().load(ImageUser).into(UserInfoImage)
                             Log.e("data Image",""+ImageUser)
+                        }else{
+                            UserInfoImage.setImageResource(R.drawable.logo)
                         }
 
 

@@ -144,7 +144,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="65dp"
-                android:text="Raiden Shogun"
+                android:text="..."
                 android:textColor="@color/black"
                 android:textSize="26dp"
                 android:textStyle="bold" />
@@ -175,8 +175,7 @@
                         android:id="@+id/UserInfoImage"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/avatar" />
+                        android:scaleType="centerCrop"/>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
         </LinearLayout>
