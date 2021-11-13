@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.daimajia.androidanimations.library.Techniques
+import com.daimajia.androidanimations.library.YoYo
 import com.example.myapplication.api.Retro
 import com.example.myapplication.api.API
 import com.example.myapplication.model.User.UserPost
@@ -20,6 +22,13 @@ class Register : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+
+        //Set animation for View.
+        YoYo.with(Techniques.FadeIn)
+            .duration(700)
+            .playOn(registerLayout)
+
+
         initAction()
     }
     //getMyData()
@@ -44,26 +53,44 @@ class Register : AppCompatActivity() {
             if (nameAccount.isEmpty()){
                 inputNameAccount.error = "Account Name is Required"
                 inputNameAccount.requestFocus()
+                YoYo.with(Techniques.Shake)
+                    .duration(700)
+                    .playOn(inputNameAccount)
                 return@setOnClickListener
             }
             if (Pass.isEmpty()){
                 inputPassword.error = "Password is Required"
                 inputPassword.requestFocus()
+                YoYo.with(Techniques.Shake)
+                    .duration(700)
+                    .playOn(inputPassword)
                 return@setOnClickListener
             }
             if (confirmPass.isEmpty()){
                 inputConfirmPassword.error = "Confirm Password is Required"
                 inputConfirmPassword.requestFocus()
+                YoYo.with(Techniques.Shake)
+                    .duration(700)
+                    .playOn(inputConfirmPassword)
                 return@setOnClickListener
             }
             if(Pass.equals(confirmPass)==false){
                 inputConfirmPassword.error = "Mật khẩu nhập lại không trùng khớp"
                 inputConfirmPassword.requestFocus()
+                YoYo.with(Techniques.Shake)
+                    .duration(700)
+                    .playOn(inputPassword)
+                YoYo.with(Techniques.Shake)
+                    .duration(700)
+                    .playOn(inputConfirmPassword)
                 return@setOnClickListener
             }
             if(fullNameFrm.isEmpty()){
                 inputFullName.error="Tên bị bỏ trống"
                 inputFullName.requestFocus()
+                YoYo.with(Techniques.Shake)
+                    .duration(700)
+                    .playOn(inputFullName)
                 return@setOnClickListener
             }
             //Phần đăng ký tài khoản

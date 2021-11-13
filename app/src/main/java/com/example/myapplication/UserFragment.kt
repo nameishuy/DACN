@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import com.example.myapplication.api.API
 import com.example.myapplication.api.Retro
@@ -29,6 +31,16 @@ class UserFragment : Fragment() {
     var idUser:String? = null
     var RoleUser:String? = null
 
+    private val rotateOpen:Animation by lazy { AnimationUtils.loadAnimation(this.context,R.anim.rotate_open_anim) }
+    private val rotateClose:Animation by lazy { AnimationUtils.loadAnimation(this.context,R.anim.rotate_close_anim) }
+    private val fromBottom:Animation by lazy { AnimationUtils.loadAnimation(this.context,R.anim.from_bottom_anim) }
+    private val fromTop:Animation by lazy { AnimationUtils.loadAnimation(this.context,R.anim.from_top_anim) }
+    private val fromLeft:Animation by lazy { AnimationUtils.loadAnimation(this.context,R.anim.from_left_anim) }
+    private val toBottom:Animation by lazy { AnimationUtils.loadAnimation(this.context,R.anim.to_bottom_anim) }
+    private val toTop:Animation by lazy { AnimationUtils.loadAnimation(this.context,R.anim.to_top_anim) }
+    private val toLeft:Animation by lazy { AnimationUtils.loadAnimation(this.context,R.anim.to_left_anim) }
+    private var clicked = false
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,6 +56,11 @@ class UserFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getDataToHome()
+
+        //Set event click for floating Menu Button
+        floatingButtonMenu.setOnClickListener {
+            onAddButtonClicked()
+        }
 
         //Set event click for Exit Button.
         btnExit.setOnClickListener{
@@ -162,5 +179,50 @@ class UserFragment : Fragment() {
             UserFragment().apply {
                 arguments = Bundle().apply {}
             }
+    }
+
+    private fun onAddButtonClicked(){
+        setVisibility(clicked)
+        setAnim(clicked)
+        setClickable(clicked)
+        clicked=!clicked
+    }
+
+    private fun setVisibility(clicked:Boolean){
+        if(!clicked){
+            btnChangePassWord.visibility = View.VISIBLE
+            btnUpdateInfo.visibility = View.VISIBLE
+            btnAddFood.visibility = View.VISIBLE
+        }else{
+            btnChangePassWord.visibility = View.INVISIBLE
+            btnUpdateInfo.visibility = View.INVISIBLE
+            btnAddFood.visibility = View.INVISIBLE
+        }
+    }
+
+    private fun setAnim(clicked: Boolean){
+        if(!clicked){
+            btnChangePassWord.startAnimation(fromBottom)
+            btnUpdateInfo.startAnimation(fromLeft)
+            btnAddFood.startAnimation(fromTop)
+            floatingButtonMenu.startAnimation(rotateOpen)
+        }else{
+            btnChangePassWord.startAnimation(toBottom)
+            btnUpdateInfo.startAnimation(toLeft)
+            btnAddFood.startAnimation(toTop)
+            floatingButtonMenu.startAnimation(rotateClose)
+        }
+    }
+
+    private fun setClickable(clicked: Boolean){
+        if(!clicked){
+            btnChangePassWord.isClickable = true
+            btnUpdateInfo.isClickable = true
+            btnAddFood.isClickable = true
+        }else{
+            btnChangePassWord.isClickable = false
+            btnUpdateInfo.isClickable = false
+            btnAddFood.isClickable = false
+        }
     }
 }

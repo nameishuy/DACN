@@ -70,4 +70,7 @@ dependencies {
 
     //add impur
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.5'
+
+    //Android View Animations
+    implementation 'com.daimajia.androidanimations:library:2.4@aar'
 }

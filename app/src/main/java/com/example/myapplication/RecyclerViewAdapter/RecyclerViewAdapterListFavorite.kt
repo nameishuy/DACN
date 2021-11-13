@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.daimajia.androidanimations.library.Techniques
+import com.daimajia.androidanimations.library.YoYo
 import com.example.myapplication.FoodFragment
 import com.example.myapplication.ListFoodFragment
 import com.example.myapplication.R
@@ -32,6 +34,7 @@ class RecyclerViewAdapterListFavorite(private val list:List<ListFavorite.Favorit
         Picasso.get().load(list[position].img).into(holder.foodPicture)
         holder.foodName.text = list[position].nameFood
         holder.totalLike.text = list[position].totalLike.toString()
+
 
         //set event click on holder
         holder.cardFavorite.setOnClickListener(object :View.OnClickListener{
@@ -63,6 +66,9 @@ class RecyclerViewAdapterListFavorite(private val list:List<ListFavorite.Favorit
             foodPicture = itemView.findViewById(R.id.foodPicture)
             foodName = itemView.findViewById(R.id.foodName)
             totalLike = itemView.findViewById(R.id.totalLike)
+            YoYo.with(Techniques.FadeInDown)
+                .duration(1000)
+                .playOn(cardFavorite)
         }
     }
 }

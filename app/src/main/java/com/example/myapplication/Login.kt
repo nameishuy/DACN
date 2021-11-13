@@ -5,11 +5,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.daimajia.androidanimations.library.Techniques
+import com.daimajia.androidanimations.library.YoYo
 import com.example.myapplication.api.Retro
 import com.example.myapplication.api.API
 import com.example.myapplication.model.User.UserRequest
 import com.example.myapplication.model.User.UserResponse
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_login.inputNameAccount
+import kotlinx.android.synthetic.main.activity_login.inputPassword
+import kotlinx.android.synthetic.main.activity_register.*
 import retrofit2.Call
 import retrofit2.Response
 
@@ -42,11 +47,17 @@ class Login : AppCompatActivity() {
             if(nameAccount.isEmpty()){
                 inputNameAccount.error = "Account Name is Required"
                 inputNameAccount.requestFocus()
+                YoYo.with(Techniques.Shake)
+                    .duration(700)
+                    .playOn(inputNameAccount)
                 return@setOnClickListener
             }
             if(Pass.isEmpty()){
                 inputPassword.error = "Password is Required"
                 inputPassword.requestFocus()
+                YoYo.with(Techniques.Shake)
+                    .duration(700)
+                    .playOn(inputPassword)
                 return@setOnClickListener
             }
 
