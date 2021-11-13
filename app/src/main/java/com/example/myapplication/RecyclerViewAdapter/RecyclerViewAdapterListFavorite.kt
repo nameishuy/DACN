@@ -41,6 +41,7 @@ class RecyclerViewAdapterListFavorite(private val list:List<ListFavorite.Favorit
                 bundle.putString("area",area)
                 bundle.putString("idFood", list[position].foodId!!.toString())
                 bundle.putString("idUser",idUser)
+                bundle.putString("typeFood",list[position].typeName)
                 val activity=v!!.context as AppCompatActivity
                 val Food = FoodFragment()
                 Food.arguments = bundle

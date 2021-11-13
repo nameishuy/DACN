@@ -231,12 +231,12 @@ class FoodFragment : Fragment() {
         Log.e("data2",glbl.id.toString())
         idFood = bundle?.getString("idFood")!!.toIntOrNull()
         Log.e("data2",idFood.toString())
+        nameFoodType = bundle?.getString("typeFood")
+        typeFood.text = nameFoodType
 
         if(area == "ListFood"){
             idFoodType = bundle?.getInt("idFoodType")
             Log.e("data2",idFoodType.toString())
-            nameFoodType = bundle?.getString("typeFood")
-            typeFood.text = nameFoodType
             glbl.token = bundle?.getString("token")
             Log.e("data2",glbl.token.toString())
             glbl.fullname = bundle?.getString("fullname")

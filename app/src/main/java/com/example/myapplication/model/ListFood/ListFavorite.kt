@@ -30,5 +30,9 @@ class ListFavorite {
         @SerializedName("totalLike")
         @Expose
         var totalLike:Int?=null
+
+        @SerializedName("typeName")
+        @Expose
+        var typeName:String?=null
     }
 }
