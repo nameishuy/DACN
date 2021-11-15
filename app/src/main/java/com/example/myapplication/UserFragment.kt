@@ -30,6 +30,9 @@ class UserFragment : Fragment() {
     var fullNameUser:String? = null
     var idUser:String? = null
     var RoleUser:String? = null
+    var FlagUpdateInfo:Boolean =false
+    var FlagAddNewFood:Boolean =false
+    var FlagChangePass:Boolean =false
 
     private val rotateOpen:Animation by lazy { AnimationUtils.loadAnimation(this.context,R.anim.rotate_open_anim) }
     private val rotateClose:Animation by lazy { AnimationUtils.loadAnimation(this.context,R.anim.rotate_close_anim) }
@@ -48,6 +51,14 @@ class UserFragment : Fragment() {
         // Inflate the layout for this fragment
         val view= inflater.inflate(R.layout.fragment_user, container, false)
         view.btnUpdateInfo.setOnClickListener {
+            FlagUpdateInfo =true
+            TransDataToUserUpdate()
+        }
+        view.btnAddFood.setOnClickListener {
+            AddNewFood()
+        }
+        view.btnChangePassWord.setOnClickListener {
+            FlagChangePass =true
             TransDataToUserUpdate()
         }
         return view
@@ -162,17 +173,21 @@ class UserFragment : Fragment() {
         i.putExtra("TransBirthDay",BirthDayUser)
         i.putExtra("TransRegion",RegionUser)
         i.putExtra("TransImage",ImageUser)
+        i.putExtra("TransFlagAddUpdateInfo",FlagUpdateInfo.toString())
+        i.putExtra("TransFlagAddFood",FlagAddNewFood.toString())
+        i.putExtra("TransFlagChangePass",FlagChangePass.toString())
         startActivity(i)
     }
+    // Kiểm tra quyền để gọi add food
+    private fun AddNewFood(){
+        if(RoleUser!!.toInt() == 1){
+            FlagAddNewFood =true
+            TransDataToUserUpdate()
+        }else{
+            Toast.makeText(activity,"Bạn không đủ quyền thực hiện chức năng này", Toast.LENGTH_LONG).show()
+        }
+    }
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment UserFragment.
-         */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance() =

@@ -76,4 +76,33 @@ interface API {
         @Query("foodId") foodId:Int?=null,
         @Query("accountId") idUser:Int?=null
     ):Call<ResponseSuccess>
+
+    //Add FoodPost
+    @POST("addFood")
+    fun addNewFood(
+        @Body addFood:addFoodPost
+    ):Call<addFoodPost>
+
+    //add Type Food
+    @POST("addTypeFood")
+    fun addNewFoodType(
+        @Body addFoodType:FoodTypePost
+    ):Call<FoodTypePost>
+
+    //add Material
+    @POST("addMaterial")
+    fun addNewMaterial(
+        @Body addMaterial:MaterialPost
+    ):Call<MaterialPost>
+
+    //get list Material
+    @GET("getListMaterial")
+    fun getDataMaterial():Call<MaterialResponse>
+
+    //Change Pass
+    @POST("changePassword")
+    fun ChangePass(
+        @Query("username") PstUserName:String? =null,
+        @Body changePass:ChangePassPost
+    ):Call<ChangePassPost>
 }

@@ -59,6 +59,21 @@
         <entry key="..\:/Users/phong/AndroidStudioProjects/DACN015/app/src/main/res/layout/fragment_user.xml" value="0.28894927536231885" />
         <entry key="..\:/Users/phong/AndroidStudioProjects/DACN015/app/src/main/res/layout/fragment_user_update.xml" value="0.28894927536231885" />
         <entry key="..\:/Users/phong/AndroidStudioProjects/DACN03/app/src/main/res/layout/activity_login.xml" value="0.16033434650455927" />
+        <entry key="..\:/Users/phong/AndroidStudioProjects/DACN22/app/src/main/res/drawable/circle3.xml" value="0.375" />
+        <entry key="..\:/Users/phong/AndroidStudioProjects/DACN22/app/src/main/res/drawable/ic__back_add_red.xml" value="0.375" />
+        <entry key="..\:/Users/phong/AndroidStudioProjects/DACN22/app/src/main/res/drawable/ic_add_red.xml" value="0.375" />
+        <entry key="..\:/Users/phong/AndroidStudioProjects/DACN22/app/src/main/res/drawable/ic_undo_red.xml" value="0.375" />
+        <entry key="..\:/Users/phong/AndroidStudioProjects/DACN22/app/src/main/res/drawable/round_addfood.xml" value="0.375" />
+        <entry key="..\:/Users/phong/AndroidStudioProjects/DACN22/app/src/main/res/layout/activity_register.xml" value="0.2115036231884058" />
+        <entry key="..\:/Users/phong/AndroidStudioProjects/DACN22/app/src/main/res/layout/fragment_add_food.xml" value="0.28894927536231885" />
+        <entry key="..\:/Users/phong/AndroidStudioProjects/DACN22/app/src/main/res/layout/fragment_change_pass.xml" value="0.2826086956521739" />
+        <entry key="..\:/Users/phong/AndroidStudioProjects/DACN22/app/src/main/res/layout/fragment_favorite.xml" value="0.2826086956521739" />
+        <entry key="..\:/Users/phong/AndroidStudioProjects/DACN22/app/src/main/res/layout/fragment_food.xml" value="0.2826086956521739" />
+        <entry key="..\:/Users/phong/AndroidStudioProjects/DACN22/app/src/main/res/layout/fragment_gallery.xml" value="0.2826086956521739" />
+        <entry key="..\:/Users/phong/AndroidStudioProjects/DACN22/app/src/main/res/layout/fragment_home.xml" value="0.2826086956521739" />
+        <entry key="..\:/Users/phong/AndroidStudioProjects/DACN22/app/src/main/res/layout/fragment_list_food.xml" value="0.2826086956521739" />
+        <entry key="..\:/Users/phong/AndroidStudioProjects/DACN22/app/src/main/res/layout/fragment_slideshow.xml" value="0.2826086956521739" />
+        <entry key="..\:/Users/phong/AndroidStudioProjects/DACN22/app/src/main/res/layout/fragment_user.xml" value="0.29528985507246375" />
       </map>
     </option>
   </component>
