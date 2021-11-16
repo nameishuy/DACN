@@ -14,8 +14,15 @@ class MenuFood : AppCompatActivity() {
     }
 
     fun initBottomNavigation(){
-        addFragment(HomeFragment.newInstance())
-        bottomNavigation.show(1)
+        val i = intent
+        val flagChangePass:String = i.getStringExtra("TransFlagChangePassToMenuFood").toString()
+        if(flagChangePass.toBoolean()==true){
+            addFragment(UserFragment.newInstance())
+            bottomNavigation.show(0)
+        }else{
+            addFragment(HomeFragment.newInstance())
+            bottomNavigation.show(1)
+        }
         bottomNavigation.add(MeowBottomNavigation.Model(0,R.drawable.ic_user))
         bottomNavigation.add(MeowBottomNavigation.Model(1,R.drawable.ic_home))
         bottomNavigation.add(MeowBottomNavigation.Model(2,R.drawable.ic_favorite))

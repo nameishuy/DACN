@@ -12,7 +12,19 @@ class User : AppCompatActivity() {
         initActions()
     }
     fun initActions(){
-        addFragment(UserUpdateFragment.newInstance())
+        val i = intent
+        val flagInfo:String = i.getStringExtra("TransFlagAddUpdateInfo").toString()
+        val flagAddFood:String = i.getStringExtra("TransFlagAddFood").toString()
+        val flagChangePass:String = i.getStringExtra("TransFlagChangePass").toString()
+        if(flagAddFood.toBoolean()==true){
+            addFragment(AddFoodFragment.newInstance())
+        }
+        if(flagInfo.toBoolean() == true){
+            addFragment(UserUpdateFragment.newInstance())
+        }
+        if(flagChangePass.toBoolean() ==true){
+            addFragment(ChangePassFragment.newInstance())
+        }
     }
 
     private fun addFragment(fragment: Fragment){

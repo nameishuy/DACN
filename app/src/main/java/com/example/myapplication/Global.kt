@@ -2,6 +2,7 @@ package com.example.myapplication
 
 import android.app.Application
 import com.example.myapplication.model.ListFood.FoodTypeResponse
+import com.example.myapplication.model.ListFood.addFoodPost
 
 class Global:Application() {
     var token:String?=null
@@ -13,4 +14,7 @@ class Global:Application() {
     var nameFoodType:Array<String>?=null
     var idFoodType:Array<Int>?=null
     var size:Int=0
+
+    //-------------------------------------------//
+    var listRecipes:List<addFoodPost.recipe>?=null
 }
