@@ -46,6 +46,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="60dp"
             android:background="@drawable/round_border"
+            android:drawableTint="@color/red"
             android:drawableStart="@drawable/ic_user"
             android:drawablePadding="5dp"
             android:ems="14"
