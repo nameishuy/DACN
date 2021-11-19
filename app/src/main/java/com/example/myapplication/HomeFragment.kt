@@ -12,6 +12,8 @@ import com.example.myapplication.api.API
 import com.example.myapplication.api.Retro
 import com.example.myapplication.model.ListFood.FoodTypeResponse
 import com.example.myapplication.RecyclerViewAdapter.RecyclerViewAdapterFoodTypes
+import com.example.myapplication.RecyclerViewAdapter.RecyclerViewAdapterTop6Foods
+import com.example.myapplication.model.ListFood.FoodMostLikes
 import com.example.myapplication.model.User.UserInfoResponse
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -25,7 +27,7 @@ class HomeFragment : Fragment() {
     var id:String?=null
     private var layoutManager :RecyclerView.LayoutManager?=null
     private var adapter :RecyclerView.Adapter<RecyclerViewAdapterFoodTypes.ViewHolder>?=null
-
+    private var adapterTop6:RecyclerView.Adapter<RecyclerViewAdapterTop6Foods.ViewHolder>?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -140,6 +142,22 @@ class HomeFragment : Fragment() {
 
             override fun onFailure(call: Call<FoodTypeResponse>, t: Throwable) {
                 Log.e("Error", t.message!!)
+            }
+        })
+
+        retro.getTop6().enqueue(object :retrofit2.Callback<FoodMostLikes>{
+            override fun onResponse(
+                call: Call<FoodMostLikes>,
+                response: Response<FoodMostLikes>
+            ) {
+                layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+                recyclerViewTopFood.layoutManager = layoutManager
+                adapterTop6 = RecyclerViewAdapterTop6Foods(response.body().top6!!,glbl.id!!)
+                recyclerViewTopFood.adapter = adapterTop6
+            }
+
+            override fun onFailure(call: Call<FoodMostLikes>, t: Throwable) {
+                TODO("Not yet implemented")
             }
         })
     }

@@ -15,10 +15,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.Global
 import com.example.myapplication.ListFoodFragment
 import com.example.myapplication.R
+import com.example.myapplication.model.ListFood.FoodMostLikes
 import com.example.myapplication.model.ListFood.FoodTypeResponse
 import com.squareup.picasso.Picasso
 
-class RecyclerViewAdapterFoodTypes(private val list:List<FoodTypeResponse.FoodType>, private val glbl:Global) :RecyclerView.Adapter<RecyclerViewAdapterFoodTypes.ViewHolder>() {
+class RecyclerViewAdapterFoodTypes(private val list: List<FoodTypeResponse.FoodType>, private val glbl:Global) :RecyclerView.Adapter<RecyclerViewAdapterFoodTypes.ViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,

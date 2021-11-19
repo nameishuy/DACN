@@ -45,6 +45,8 @@ class FoodFragment : Fragment() {
         //set event click button back
         btnBack.setOnClickListener(object :View.OnClickListener{
             override fun onClick(v: View?) {
+
+                //Check area to put correct data.
                 if(area == "ListFood"){
                     val activity=v!!.context as AppCompatActivity
                     val ListFood = ListFoodFragment()
@@ -66,6 +68,15 @@ class FoodFragment : Fragment() {
                     bundle.putString("id",glbl.id)
                     activity.supportFragmentManager.beginTransaction()
                         .replace(R.id.fragmentContainer,Favorite).addToBackStack(Fragment::class.java.simpleName).commit()
+                }else if(area =="HomeFragment"){
+                    val activity=v!!.context as AppCompatActivity
+                    val Home = HomeFragment()
+                    val bundle = Bundle()
+                    Home.arguments = bundle
+                    bundle.putString("id",glbl.id)
+                    bundle.putString("roleId",glbl.roleId)
+                    activity.supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainer,Home).addToBackStack(Fragment::class.java.simpleName).commit()
                 }
             }
         })

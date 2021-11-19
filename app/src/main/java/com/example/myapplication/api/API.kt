@@ -105,4 +105,8 @@ interface API {
         @Query("username") PstUserName:String? =null,
         @Body changePass:ChangePassPost
     ):Call<ChangePassPost>
+
+    //Top 6 Most Likes
+    @GET("get6Foods")
+    fun getTop6():Call<FoodMostLikes>
 }
