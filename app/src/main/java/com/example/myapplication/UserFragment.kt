@@ -237,7 +237,11 @@ class UserFragment : Fragment() {
         if(!clicked){
             btnChangePassWord.isClickable = true
             btnUpdateInfo.isClickable = true
-            btnAddFood.isClickable = true
+            if(RoleUser!!.toInt() == 1){
+                btnAddFood.isClickable = true
+            }else{
+                btnAddFood.isClickable = false
+            }
         }else{
             btnChangePassWord.isClickable = false
             btnUpdateInfo.isClickable = false
