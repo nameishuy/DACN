@@ -179,13 +179,6 @@ class UserFragment : Fragment() {
         i.putExtra("TransFlagChangePass",FlagChangePass.toString())
         startActivity(i)
     }
-    // Kiểm tra quyền để gọi add food
-    private fun AddNewFood(){
-        if(RoleUser!!.toInt() == 1){
-        }else{
-            Toast.makeText(activity,"Bạn không đủ quyền thực hiện chức năng này", Toast.LENGTH_LONG).show()
-        }
-    }
     companion object {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
