@@ -237,12 +237,7 @@ class UserFragment : Fragment() {
         if(!clicked){
             btnChangePassWord.isClickable = true
             btnUpdateInfo.isClickable = true
-            // Thay đổi ở đây (Chỉ hiện thêm addFood button khi RoleUser là 1 )
-            if(RoleUser!!.toInt() == 1){
-                btnAddFood.isClickable = true
-            }else{
-                btnAddFood.isClickable = false
-            }
+            btnAddFood.isClickable = true
         }else{
             btnChangePassWord.isClickable = false
             btnUpdateInfo.isClickable = false
