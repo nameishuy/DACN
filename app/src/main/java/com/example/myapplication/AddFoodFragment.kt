@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
+import android.nfc.NfcAdapter
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Base64
@@ -69,6 +70,8 @@ class AddFoodFragment : Fragment() {
     private var idUser:String? = null
     private var RoleUser:String? = null
     private var Quatity:String = ""
+    private var NewMaterialName:String =""
+    private var NewFoodTypeName:String =""
 
     private var LinkImage:String? =null
     private var LinkImpur:String? =null
@@ -186,7 +189,6 @@ class AddFoodFragment : Fragment() {
         LinearFoodTypeImage.setVisibility(View.INVISIBLE)
         RelativeFoodTypeImage.setVisibility(View.INVISIBLE)
         btnPostNewFoodType.setVisibility(View.INVISIBLE)
-        getNameFoodType()
         FlagAddFoodType =false
     }
     private fun btnAddNewMaterial(){
@@ -201,7 +203,6 @@ class AddFoodFragment : Fragment() {
         SpinnerMaterial.setVisibility(View.VISIBLE)
         inputNewMaterial.setVisibility(View.INVISIBLE)
         btnPostNewMaterial.setVisibility(View.INVISIBLE)
-        getMaterial()
         FlagAddMaterial=false
     }
     // Lấy Tên các loại món ăn
@@ -224,6 +225,10 @@ class AddFoodFragment : Fragment() {
                             ,android.R.layout.simple_spinner_item,ListFoodNameType)
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                         SpinnerNameFoodType.adapter = adapter
+                        if(NewFoodTypeName.equals("")==false){
+                            var PositionNewFoodType = adapter.getPosition(NewFoodTypeName)
+                            SpinnerNameFoodType.setSelection(PositionNewFoodType)
+                        }
                         SpinnerNameFoodType.onItemSelectedListener =object : AdapterView.OnItemSelectedListener{
                             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long
                             ) {
@@ -236,7 +241,6 @@ class AddFoodFragment : Fragment() {
                             }
 
                         }
-
                     }else{
                         Log.e("Lỗi 1",":"+response.message())
                     }
@@ -334,7 +338,10 @@ class AddFoodFragment : Fragment() {
                             ,android.R.layout.simple_spinner_item,ListMaterial)
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                         SpinnerMaterial.adapter = adapter
-
+                        if(NewMaterialName.equals("")==false){
+                            var PositionNewMaterial = adapter.getPosition(NewMaterialName)
+                            SpinnerMaterial.setSelection(PositionNewMaterial)
+                        }
                         SpinnerMaterial.onItemSelectedListener =object :AdapterView.OnItemSelectedListener{
                             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long
                             ) {
@@ -458,7 +465,7 @@ class AddFoodFragment : Fragment() {
     private fun AddNewFoodType(){
         if(FlagAddFoodType==true){
             var Flag:Boolean =true
-            val NewFoodTypeName =inputNewFoodType.text.toString().trim()
+            NewFoodTypeName =inputNewFoodType.text.toString().trim()
             if(NewFoodTypeName.isEmpty()){
                 inputNewFoodType.error = "Chưa Thêm Tên Loại Công Thức"
                 inputNewFoodType.requestFocus()
@@ -490,6 +497,9 @@ class AddFoodFragment : Fragment() {
                     ) {
                         if (response != null) {
                             if(response.isSuccessful){
+                                Toast.makeText(activity,"Thêm Loại Thành Công"
+                                    , Toast.LENGTH_LONG).show()
+                                getNameFoodType()
                                 Log.e("Thành Công","")
                             }else{
                                 Log.e("Lỗi 1",":"+response.message())
@@ -512,7 +522,7 @@ class AddFoodFragment : Fragment() {
     //Thêm mới Nguyên Liệu
     private fun AddNewMaterial(){
         if(FlagAddMaterial == true){
-            val NewMaterialName =inputNewMaterial.text.toString().trim()
+            NewMaterialName =inputNewMaterial.text.toString().trim()
             if(NewMaterialName.isEmpty()){
                 inputNewMaterial.error = "Chưa Thêm Tên Gia Vị"
                 inputNewMaterial.requestFocus()
@@ -526,6 +536,9 @@ class AddFoodFragment : Fragment() {
                     ) {
                         if (response != null) {
                             if(response.isSuccessful){
+                                Toast.makeText(activity,"Thêm Mới Thành Công"
+                                    , Toast.LENGTH_LONG).show()
+                                getMaterial()
                                 Log.e("Thành Công","")
                             }else{
                                 Log.e("Lỗi 1",":"+response.message())

@@ -62,10 +62,12 @@
         android:src="@drawable/ic_food"
         android:tint="@color/white"
         android:id="@+id/btnAddFood"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -240,6 +242,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="75dp"
                     android:background="@drawable/circle">
+
                     <LinearLayout
                         android:layout_width="80dp"
                         android:layout_height="80dp"
@@ -259,7 +262,7 @@
                                 android:id="@+id/UserInfoImage"
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
-                                android:scaleType="centerCrop"/>
+                                android:scaleType="centerCrop" />
                         </androidx.cardview.widget.CardView>
                     </LinearLayout>
                 </LinearLayout>

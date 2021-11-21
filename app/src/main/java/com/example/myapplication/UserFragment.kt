@@ -55,7 +55,8 @@ class UserFragment : Fragment() {
             TransDataToUserUpdate()
         }
         view.btnAddFood.setOnClickListener {
-            AddNewFood()
+            FlagAddNewFood =true
+            TransDataToUserUpdate()
         }
         view.btnChangePassWord.setOnClickListener {
             FlagChangePass =true
@@ -181,8 +182,6 @@ class UserFragment : Fragment() {
     // Kiểm tra quyền để gọi add food
     private fun AddNewFood(){
         if(RoleUser!!.toInt() == 1){
-            FlagAddNewFood =true
-            TransDataToUserUpdate()
         }else{
             Toast.makeText(activity,"Bạn không đủ quyền thực hiện chức năng này", Toast.LENGTH_LONG).show()
         }
@@ -207,7 +206,12 @@ class UserFragment : Fragment() {
         if(!clicked){
             btnChangePassWord.visibility = View.VISIBLE
             btnUpdateInfo.visibility = View.VISIBLE
-            btnAddFood.visibility = View.VISIBLE
+            // Thay đổi ở đây (Chỉ hiện thêm addFood button khi RoleUser là 1 )
+            if(RoleUser!!.toInt() == 1){
+                btnAddFood.visibility = View.VISIBLE
+            }else{
+                btnAddFood.visibility = View.INVISIBLE
+            }
         }else{
             btnChangePassWord.visibility = View.INVISIBLE
             btnUpdateInfo.visibility = View.INVISIBLE
