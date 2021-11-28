@@ -73,4 +73,7 @@ dependencies {
 
     //Android View Animations
     implementation 'com.daimajia.androidanimations:library:2.4@aar'
+
+    //Youtube Library
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
 }
