@@ -14,8 +14,11 @@ import com.example.myapplication.RecyclerViewAdapter.RecyclerViewAdapterFoodSear
 import com.example.myapplication.api.API
 import com.example.myapplication.api.Retro
 import com.example.myapplication.model.ListFood.ListFoodSearch
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_search.*
 import kotlinx.android.synthetic.main.fragment_search.recyclerViewFoods
+import kotlinx.android.synthetic.main.fragment_search.search_btn
+import kotlinx.android.synthetic.main.fragment_search.search_txt
 import retrofit2.Response
 
 class SearchFragment : Fragment() {
@@ -58,6 +61,35 @@ class SearchFragment : Fragment() {
                     .replace(R.id.fragmentContainer,Home).addToBackStack(Fragment::class.java.simpleName).commit()
             }
         })
+        search_txt.setOnFocusChangeListener { view, hasFocus -> search_txt.hint = ""}
+        search_btn.setOnClickListener {
+            //Call API to get List Food
+            val retro = Retro().getRetroClientInstance().create(API::class.java)
+            var searchtext:retrofit2.Call<ListFoodSearch> = retro.getListFood(search_txt.text.toString())
+            searchtext.enqueue(object :retrofit2.Callback<ListFoodSearch>{
+                override fun onResponse(
+                    call: retrofit2.Call<ListFoodSearch>,
+                    response: Response<ListFoodSearch>
+                ) {
+                    val data = response.body()
+                    if(data.data!!.list!!.size == 0){
+                        noFound.isVisible = true
+                        recyclerViewFoods.isVisible = false
+                    }else{
+                        layoutManager = GridLayoutManager(context,2, GridLayoutManager.VERTICAL,false)
+                        recyclerViewFoods.layoutManager = layoutManager
+                        adapter = RecyclerViewAdapterFoodSearch(data!!.data!!.list!!,data.data!!.list!!.size, glbl.id.toString(),
+                            searchChar.toString()
+                        )
+                        recyclerViewFoods.adapter = adapter
+                    }
+                }
+
+                override fun onFailure(call: retrofit2.Call<ListFoodSearch>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
+            })
+        }
     }
 
     companion object {
