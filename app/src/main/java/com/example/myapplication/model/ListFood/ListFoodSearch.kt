@@ -3,26 +3,31 @@ package com.example.myapplication.model.ListFood
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class FoodMostLikes {
-    @SerializedName("list6Foods")
+class ListFoodSearch {
+    @SerializedName("data")
     @Expose
-        var top6:List<toplikeFood>?=null
+    var data: listFood?=null
 
-    class toplikeFood{
+    class listFood{
+        @SerializedName("foods")
+        @Expose
+        var list:List<Food>?=null
+    }
+    class Food{
         @SerializedName("id")
         @Expose
-            var idFood:Int?=null
+        var idFood:Int? =null
         @SerializedName("name")
         @Expose
-            var nameFood:String?=null
+        var nameFood:String? =null
         @SerializedName("image")
         @Expose
-            var img:String?=null
+        var imageFood:String? =null
         @SerializedName("totalLike")
         @Expose
-            var totalLike:Int?=null
+        var totalLike:Int?=null
         @SerializedName("nameTypeFood")
         @Expose
-            var nameTypeFood:String?=null
+        var nametypeFood:String?=null
     }
 }

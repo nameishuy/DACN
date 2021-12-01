@@ -10,10 +10,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.HtmlCompat
+import androidx.core.view.get
 import com.example.myapplication.api.API
 import com.example.myapplication.api.Retro
 import com.example.myapplication.model.ListFood.*
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.utils.loadOrCueVideo
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_food.*
@@ -30,6 +33,7 @@ class FoodFragment : Fragment() {
     var flag:Boolean = false
     val glbl = Global()
     var area:String?=null
+    var searchChar:String?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,8 +51,6 @@ class FoodFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getData()
-
-        //Test Video
 
         //set event click button back
         btnBack.setOnClickListener(object :View.OnClickListener{
@@ -85,6 +87,16 @@ class FoodFragment : Fragment() {
                     bundle.putString("roleId",glbl.roleId)
                     activity.supportFragmentManager.beginTransaction()
                         .replace(R.id.fragmentContainer,Home).addToBackStack(Fragment::class.java.simpleName).commit()
+                }else if(area == "FoodSearch"){
+                    val activity=v!!.context as AppCompatActivity
+                    val Search = SearchFragment()
+                    val bundle = Bundle()
+                    Search.arguments = bundle
+                    bundle.putString("id",glbl.id)
+                    bundle.putString("roleId",glbl.roleId)
+                    bundle.putString("searchChar",searchChar)
+                    activity.supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainer,Search).addToBackStack(Fragment::class.java.simpleName).commit()
                 }
             }
         })
@@ -130,6 +142,15 @@ class FoodFragment : Fragment() {
                         recipe.append("\n\u2022 " + item.material + ":\t\t" + item.quantity)
                     }
                 }
+
+                //Get id video of food
+                lifecycle.addObserver(videoFood)
+                videoFood.addYouTubePlayerListener(object : AbstractYouTubePlayerListener(){
+                    override fun onReady(youTubePlayer: YouTubePlayer) {
+                        super.onReady(youTubePlayer)
+                        youTubePlayer.loadOrCueVideo(lifecycle,data.data!!.infoFood!!.videoId!!,0F)
+                    }
+                })
 
                 // set event click of like button
                 favoriteButton.setOnClickListener {
@@ -246,12 +267,16 @@ class FoodFragment : Fragment() {
     fun getData(){
         val bundle = arguments
         area = bundle?.getString("area")
-        glbl.id = bundle?.getString("idUser")!!.toIntOrNull().toString()
-        Log.e("data2",glbl.id.toString())
         idFood = bundle?.getString("idFood")!!.toIntOrNull()
         Log.e("data2",idFood.toString())
         nameFoodType = bundle?.getString("typeFood")
         typeFood.text = nameFoodType
+        glbl.id = bundle?.getString("idUser")!!.toIntOrNull().toString()
+        Log.e("data2",glbl.id.toString())
+
+        if(area == "FoodSearch"){
+            searchChar = bundle.getString("searchChar")
+        }
 
         if(area == "ListFood"){
             idFoodType = bundle?.getInt("idFoodType")

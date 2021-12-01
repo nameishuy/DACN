@@ -25,6 +25,7 @@
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/round_bg.xml" value="0.2703125" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/round_bgbutton.xml" value="0.14635416666666667" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/round_border.xml" value="0.2703125" />
+        <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/search_bg.xml" value="0.22135416666666666" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/shadow_icon.xml" value="0.136" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/drawable/side_nav_bar.xml" value="0.17864583333333334" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
@@ -47,6 +48,7 @@
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/fragment_home2.xml" value="0.1625" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/fragment_home_.xml" value="0.1625" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/fragment_list_food.xml" value="0.33056478405315615" />
+        <entry key="..\:/GitHub/DACN/app/src/main/res/layout/fragment_search.xml" value="0.2" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/fragment_slideshow.xml" value="0.16510416666666666" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/fragment_user.xml" value="0.3622936576889661" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/fragment_user_update.xml" value="0.4" />

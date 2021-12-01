@@ -52,11 +52,11 @@
             android:layout_below="@+id/header"
             android:paddingBottom="50dp">
             <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
+                android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="10dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="10dp"
                 android:id="@+id/cardType"
                 app:cardElevation="7dp">
                 <RelativeLayout
@@ -86,11 +86,11 @@
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
+                android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="10dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginEnd="10dp"
                 app:cardElevation="7dp"
                 android:layout_alignParentEnd="true"
                 android:id="@+id/favoriteButton">
@@ -102,7 +102,7 @@
                         android:id="@+id/favoriteIcon"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="20dp"
                         android:layout_marginRight="10dp"
                         android:layout_gravity="center"
                         android:src="@drawable/ic_favorite" />
@@ -188,27 +188,27 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Video Hướng Dẫn"
-                android:textColor="@color/black"
+                android:text="Video Nấu Ăn"
+                android:textColor="@color/red"
                 android:textStyle="bold"
                 android:layout_below="@+id/recipeCard"
                 android:id="@+id/videoTitle"
                 android:layout_marginTop="10dp"
-                android:layout_marginStart="15dp"/>
+                android:layout_marginStart="20dp"
+                android:textSize="15sp" />
             <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
                 android:layout_width="375dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/videoTitle"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="10dp"
-                app:showYouTubeButton="false"
-                app:videoId="VNdHd1asf9s"
-                app:autoPlay="true"
+                app:showYouTubeButton="true"
+                app:autoPlay="false"
                 android:id="@+id/videoFood"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
-                android:layout_below="@+id/recipeCard"/>
+                android:layout_below="@+id/videoFood"/>
         </RelativeLayout>
     </RelativeLayout>
 </ScrollView>

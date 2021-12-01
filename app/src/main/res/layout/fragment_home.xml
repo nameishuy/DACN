@@ -83,6 +83,36 @@
                     app:strokeColor="#ff777777"
                     app:strokeWidth="1dp" />
             </androidx.cardview.widget.CardView>
+            <RelativeLayout
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp">
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/search_txt"
+                    android:textSize="13sp"
+                    android:textColor="@color/white"
+                    android:hint="Bạn Đang Tìm Gì?"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:background="@drawable/search_bg"
+                    android:textColorHint="@color/white"
+                    android:ems="17"
+                    android:padding="10dp"
+                    android:layout_marginBottom="10dp"/>
+                <View
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="50dp"
+                    android:id="@+id/search_btn"
+                    android:background="@drawable/ic_search"/>
+            </RelativeLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.api.API
@@ -16,6 +17,7 @@ import com.example.myapplication.RecyclerViewAdapter.RecyclerViewAdapterTop6Food
 import com.example.myapplication.model.ListFood.FoodMostLikes
 import com.example.myapplication.model.User.UserInfoResponse
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.nav_header_menu.view.*
 import retrofit2.Call
@@ -94,6 +96,30 @@ class HomeFragment : Fragment() {
         //He is my Savior !!!
         //Link: https://www.youtube.com/watch?v=FiqiIJNALFs
         getAPI() //get data list food types to recycler view
+
+        search_txt.setOnFocusChangeListener { view, hasFocus -> search_txt.hint = ""}
+
+        search_btn.setOnClickListener(object :View.OnClickListener{
+            override fun onClick(v: View?) {
+                val search = search_txt.text.toString().trim()
+
+                //Check text in search area if empty -> error msg else -> go to search fragment.
+                if(search.isEmpty()){
+                    inputNameAccount.error = "Account Name is Required"
+                    inputNameAccount.requestFocus()
+                }else{
+                    val bundle = Bundle()
+                    bundle.putString("id",glbl.id)
+                    bundle.putString("roleId",glbl.roleId)
+                    bundle.putString("searchChar",search_txt.text.toString())
+                    val activity = v!!.context as AppCompatActivity
+                    val searchfragment = SearchFragment()
+                    searchfragment.arguments = bundle
+                    activity.supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainer,searchfragment).addToBackStack(Fragment::class.java.simpleName).commit()
+                }
+            }
+        })
     }
 
 
@@ -161,4 +187,5 @@ class HomeFragment : Fragment() {
             }
         })
     }
+
 }

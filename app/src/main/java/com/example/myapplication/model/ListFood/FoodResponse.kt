@@ -30,6 +30,9 @@ class FoodResponse {
         @SerializedName("totalLike")
         @Expose
         var totallike:Int?=null
+        @SerializedName("videoId")
+        @Expose
+        var videoId:String?=null
     }
     class recipe {
         @SerializedName("material")
