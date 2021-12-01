@@ -76,6 +76,8 @@ class SearchFragment : Fragment() {
                         noFound.isVisible = true
                         recyclerViewFoods.isVisible = false
                     }else{
+                        noFound.isVisible = false
+                        recyclerViewFoods.isVisible = true
                         layoutManager = GridLayoutManager(context,2, GridLayoutManager.VERTICAL,false)
                         recyclerViewFoods.layoutManager = layoutManager
                         adapter = RecyclerViewAdapterFoodSearch(data!!.data!!.list!!,data.data!!.list!!.size, glbl.id.toString(),

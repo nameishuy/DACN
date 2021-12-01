@@ -22,6 +22,32 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/headView"
+        android:id="@+id/noFound"
+        android:layout_marginTop="-30dp"
+        android:elevation="1dp"
+        android:visibility="invisible">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sorrycat"
+            android:layout_centerInParent="true"
+            android:id="@+id/imgCat"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgCat"
+            android:text="Hiện chưa có món ăn nào được thêm vào loại này!"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="-50dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@drawable/bordertop"
         android:layout_below="@+id/headView"
         android:layout_marginTop="-62dp">

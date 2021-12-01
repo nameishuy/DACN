@@ -4,6 +4,9 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 class ListFoodResponse {
+    @SerializedName("message")
+    @Expose
+    var msg:String?=null
     @SerializedName("data")
     @Expose
     var data: listFood?=null

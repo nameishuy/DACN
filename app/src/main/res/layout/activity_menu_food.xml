@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MenuFood">
+    tools:context=".MenuFood"
+    android:background="@color/white">
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/fragmentContainer"
-        android:layout_above="@+id/bottomNavigation"/>
+        android:layout_above="@+id/bottomNavigation"
+        android:background="@color/white"/>
 
     <com.etebarian.meowbottomnavigation.MeowBottomNavigation
         android:layout_width="match_parent"
@@ -23,5 +25,5 @@
         app:mbn_rippleColor="#2f424242"
         app:mbn_selectedIconColor="@color/red"
         app:mbn_shadowColor="#1f212121"
-        />
+        android:background="@color/white"/>
 </RelativeLayout>

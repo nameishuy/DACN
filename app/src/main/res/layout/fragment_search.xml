@@ -21,7 +21,7 @@
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="550dp"
+        android:layout_height="600dp"
         android:background="@color/white"
         android:layout_centerInParent="true"
         android:gravity="center"

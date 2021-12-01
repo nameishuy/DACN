@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +18,9 @@ import com.example.myapplication.api.Retro
 import com.example.myapplication.model.ListFood.ListFoodResponse
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_list_food.*
+import kotlinx.android.synthetic.main.fragment_list_food.noFound
+import kotlinx.android.synthetic.main.fragment_list_food.recyclerViewFoods
+import kotlinx.android.synthetic.main.fragment_search.*
 import retrofit2.Call
 import retrofit2.Response
 
@@ -83,13 +87,18 @@ class ListFoodFragment : Fragment() {
         var list:Call<ListFoodResponse> = retro.getList(idFoodType)
         list.enqueue(object :retrofit2.Callback<ListFoodResponse>{
             override fun onResponse(
-                call: Call<ListFoodResponse>,
-                response: Response<ListFoodResponse>
+                call: Call<ListFoodResponse>?,
+                response: Response<ListFoodResponse>?
             ) {
-                layoutManager = GridLayoutManager(context,2,GridLayoutManager.VERTICAL,false)
-                recyclerViewFoods.layoutManager = layoutManager
-                adapter = RecyclerViewAdapterListFood(response.body().data!!.list!!,glbl,nameFoodType,idFoodType)
-                recyclerViewFoods.adapter = adapter
+                if(response?.body()?.msg!! == "Không tìm thấy"){
+                    noFound.isVisible = true
+                    recyclerViewFoods.isVisible = false
+                }else{
+                    layoutManager = GridLayoutManager(context,2,GridLayoutManager.VERTICAL,false)
+                    recyclerViewFoods.layoutManager = layoutManager
+                    adapter = RecyclerViewAdapterListFood(response?.body()?.data!!.list!!,glbl,nameFoodType,idFoodType)
+                    recyclerViewFoods.adapter = adapter
+                }
             }
 
             override fun onFailure(call: Call<ListFoodResponse>, t: Throwable) {
