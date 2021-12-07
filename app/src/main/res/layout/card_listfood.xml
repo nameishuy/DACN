@@ -10,12 +10,13 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <ImageView
+            android:id="@+id/imageFood"
             android:layout_width="match_parent"
             android:layout_height="210dp"
-            android:src="@color/white"
-            android:id="@+id/imageFood"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            android:src="@color/white" />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -32,17 +33,18 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:shadowRadius="5"/>
+
             <TextView
+                android:id="@+id/nameFood"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/nameFood"
-                android:text="Name Food Is Here"
-                android:textSize="12sp"
-                android:textColor="@color/white"
-                android:layout_marginStart="10dp"
-                android:textStyle="bold"
                 android:layout_below="@+id/name"
-                android:shadowRadius="5"/>
+                android:layout_marginStart="10dp"
+                android:shadowRadius="5"
+                android:text="Name Food Is Here"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold" />
         </RelativeLayout>
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

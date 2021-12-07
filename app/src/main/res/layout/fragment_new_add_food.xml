@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewAddFoodFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/red"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/btnBackToHomeFromNewAddFragment"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/ic_back" />
+
+    <Button
+        android:id="@+id/btnAddANewFood"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="275dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_bgaddbutton"
+        android:text="Thêm"
+        android:textColor="@color/red"
+        android:textSize="15dp" />
+
+    <ScrollView
+        android:id="@+id/ScrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="1320dp"
+        android:layout_marginTop="60dp"
+        android:background="@color/teal_100">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/Linear1"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:layout_centerHorizontal="true">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true">
+
+                    <ImageView
+                        android:id="@+id/NewAFoodImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/cook_art2" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="145dp"
+                android:layout_height="36dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="155dp"
+                android:background="@drawable/round_addfood">
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/ic_camera_white"
+                    android:textColor="@color/white"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/btnChooseImage"
+                    android:layout_width="120dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="3dp"
+                    android:text="Thêm ảnh"
+                    android:textColor="@color/white"
+                    android:textSize="20dp" />
+            </RelativeLayout>
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/ProgressMain"
+                android:layout_width="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:layout_below="@+id/Linear1"
+                android:layout_marginTop="0dp"/>
+            <RelativeLayout
+                android:id="@+id/Relative1"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@+id/ProgressMain"
+                android:layout_marginTop="20dp"
+                android:background="@color/teal_100">
+
+                <EditText
+                    android:id="@+id/inputNewNameRecipe"
+                    android:layout_width="320dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/round_textinput_add"
+                    android:fontFamily="sans-serif-light"
+                    android:hint="Tên món: Bánh Trán Trộn"
+                    android:inputType="text"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="90dp"
+                    android:text="Loại Món"
+                    android:textColor="@color/black"
+                    android:textSize="22dp"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="320dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="135dp"
+                    android:background="@drawable/round_textinput_add">
+
+                    <Spinner
+                        android:id="@+id/SpinnerNameAFoodType"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:theme="@style/Spinner" />
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/btnMenuFoodType"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="370dp"
+                    android:layout_marginTop="140dp"
+                    android:background="@drawable/ic_menu_vertical_1" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/Relative2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Relative1"
+                android:layout_marginTop="0dp"
+                android:background="@color/teal_100">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Nguyên Liệu"
+                    android:textColor="@color/black"
+                    android:textSize="22dp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewMaterial"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="60dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/Relative3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Relative4"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@color/teal_100">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Cách Làm"
+                    android:textColor="@color/black"
+                    android:textSize="22dp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewStep"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="60dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/Relative4"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_below="@+id/Relative2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/ic_add" />
+
+                <TextView
+                    android:id="@+id/btnNewMaterial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Nguyên Liệu"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/Relative5"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_below="@+id/Relative3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/ic_add" />
+
+                <TextView
+                    android:id="@+id/btnAddANewStep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Thêm Bước"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+            <EditText
+                android:id="@+id/inputIdVideo"
+                android:layout_width="320dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/round_textinput_add"
+                android:fontFamily="sans-serif-light"
+                android:hint="Video Id: C4o5ZzbZDsc"
+                android:inputType="text"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textStyle="bold"
+                android:layout_below="@+id/Relative5"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/inputIdVideo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

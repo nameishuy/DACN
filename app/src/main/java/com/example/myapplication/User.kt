@@ -17,7 +17,7 @@ class User : AppCompatActivity() {
         val flagAddFood:String = i.getStringExtra("TransFlagAddFood").toString()
         val flagChangePass:String = i.getStringExtra("TransFlagChangePass").toString()
         if(flagAddFood.toBoolean()==true){
-            addFragment(AddFoodFragment.newInstance())
+            addFragment(NewAddFoodFragment.newInstance())
         }
         if(flagInfo.toBoolean() == true){
             addFragment(UserUpdateFragment.newInstance())

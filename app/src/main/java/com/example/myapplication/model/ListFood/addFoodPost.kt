@@ -24,6 +24,10 @@ class addFoodPost {
         @SerializedName("typeFoodId")
         @Expose
         var pstTypeFoodId:Int? = 0
+
+        @SerializedName("videoId")
+        @Expose
+        var pstVideoId:String? = null
     }
 
     @SerializedName("recipes")
