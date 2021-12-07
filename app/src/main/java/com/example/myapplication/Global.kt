@@ -19,7 +19,6 @@ class Global:Application() {
     var listRecipes:List<addFoodPost.recipe>?=null
     var listMaterialRecyclerView:ArrayList<Int> = arrayListOf(1)
     var listStepRecyclerView:ArrayList<Int> = arrayListOf(1)
-
     var ListMaterial = mutableListOf<String>()
     var ListMaterialId= mutableListOf<Int>()
     var ListMaterialQuatity= ArrayList<addFoodPost.recipe>()
