@@ -1,23 +1,18 @@
 package com.example.myapplication
 
-import android.os.Build
 import android.os.Bundle
-import android.text.Html
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.text.HtmlCompat
-import androidx.core.view.get
 import com.example.myapplication.api.API
 import com.example.myapplication.api.Retro
 import com.example.myapplication.model.ListFood.*
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.utils.loadOrCueVideo
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_food.*
 import kotlinx.android.synthetic.main.fragment_food.btnBack
@@ -121,9 +116,9 @@ class FoodFragment : Fragment() {
                         val dataList = response.body()
                         for(item:ListFavorite.Favorite in dataList.data!!.list!!){
                             if(idFood == item.foodId){
-                                favoriteIcon.setColorFilter(resources.getColor(R.color.red))
+                                favoriteIcon.setColorFilter(resources.getColor(R.color.orange))
                                 titleFavoriteButton.text = "Đã Thích (" + data.data!!.infoFood!!.totallike!! + ")"
-                                titleFavoriteButton.setTextColor(resources.getColor(R.color.red))
+                                titleFavoriteButton.setTextColor(resources.getColor(R.color.orange))
                                 flag = true
                             }
                         }
@@ -155,7 +150,7 @@ class FoodFragment : Fragment() {
                 // set event click of like button
                 favoriteButton.setOnClickListener {
                     if(flag == false){
-                        favoriteIcon.setColorFilter(resources.getColor(R.color.red))
+                        favoriteIcon.setColorFilter(resources.getColor(R.color.orange))
                         var likeChange:Int = data.data!!.infoFood!!.totallike!!+1
                         titleFavoriteButton.text = "Đã Thích (" + likeChange + ")"
 
@@ -195,7 +190,7 @@ class FoodFragment : Fragment() {
                             }
                         })
 
-                        titleFavoriteButton.setTextColor(resources.getColor(R.color.red))
+                        titleFavoriteButton.setTextColor(resources.getColor(R.color.orange))
                         flag = true
                     }else{
                         favoriteIcon.setColorFilter(null)

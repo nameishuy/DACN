@@ -11,7 +11,7 @@
         android:id="@+id/topView"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="@color/red"
+        android:background="@color/orange"
         android:orientation="horizontal">
     </LinearLayout>
     <View
@@ -77,7 +77,7 @@
             android:layout_height="wrap_content"
             android:text="Quên Mật Khẩu?"
             android:textStyle="bold"
-            android:textColor="@color/red"
+            android:textColor="@color/orange"
             android:textSize="14sp"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"/>
@@ -95,7 +95,7 @@
             android:layout_height="wrap_content"
             android:text="Thành Viên Mới? Tạo Ngay!"
             android:textStyle="bold"
-            android:textColor="@color/red"
+            android:textColor="@color/orange"
             android:textSize="14sp"
             android:layout_gravity="center"/>
     </LinearLayout>

@@ -91,7 +91,7 @@
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
-                android:background="@color/red"
+                android:background="@color/orange"
                 android:text="Thêm"
                 android:textColor="@color/white"
                 android:textSize="16dp" />

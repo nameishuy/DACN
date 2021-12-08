@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserFragment">
+    tools:context=".UserFragment"
+    android:background="@color/white">
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,7 +15,7 @@
         android:elevation="5dp"
         android:layout_marginBottom="60dp"
         android:layout_marginEnd="30dp"
-        android:backgroundTint="@color/red"
+        android:backgroundTint="@color/orange"
         android:focusable="true"
         android:id="@+id/floatingButtonMenu"
         android:src="@drawable/ic_add"
@@ -27,7 +28,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="5dp"
-        android:backgroundTint="@color/red"
+        android:backgroundTint="@color/orange"
         android:focusable="true"
         android:clickable="true"
         android:elevation="5dp"
@@ -44,7 +45,7 @@
         android:elevation="5dp"
         android:layout_marginBottom="60dp"
         android:layout_marginEnd="90dp"
-        android:backgroundTint="@color/red"
+        android:backgroundTint="@color/orange"
         android:focusable="true"
         android:id="@+id/btnUpdateInfo"
         android:src="@drawable/ic_pencil" />
@@ -57,7 +58,7 @@
         android:layout_alignParentBottom="true"
         android:elevation="5dp"
         android:layout_marginEnd="30dp"
-        android:backgroundTint="@color/red"
+        android:backgroundTint="@color/orange"
         android:focusable="true"
         android:src="@drawable/ic_food"
         android:tint="@color/white"

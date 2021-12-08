@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/red"
+        android:background="@color/orange"
         android:orientation="vertical">
 
     </LinearLayout>
@@ -31,7 +31,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/round_bgaddbutton"
         android:text="Thêm"
-        android:textColor="@color/red"
+        android:textColor="@color/orange"
         android:textSize="15dp" />
 
     <ScrollView

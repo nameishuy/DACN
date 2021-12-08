@@ -69,7 +69,7 @@
                         android:text="Thể Loại"
                         android:textSize="13sp"
                         android:id="@+id/type"
-                        android:textColor="@color/red"
+                        android:textColor="@color/orange"
                         android:textStyle="bold"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="10dp"/>
@@ -133,7 +133,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/descriptionTitle"
                         android:text="Mô Tả Món Ăn"
-                        android:textColor="@color/red"
+                        android:textColor="@color/orange"
                         android:textStyle="bold"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="10dp"/>
@@ -168,7 +168,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/recipeTitle"
                         android:text="Công Thức"
-                        android:textColor="@color/red"
+                        android:textColor="@color/orange"
                         android:textStyle="bold"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="10dp"/>
@@ -189,7 +189,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Video Nấu Ăn"
-                android:textColor="@color/red"
+                android:textColor="@color/orange"
                 android:textStyle="bold"
                 android:layout_below="@+id/recipeCard"
                 android:id="@+id/videoTitle"

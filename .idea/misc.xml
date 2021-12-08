@@ -48,69 +48,17 @@
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/fragment_home2.xml" value="0.1625" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/fragment_home_.xml" value="0.1625" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/fragment_list_food.xml" value="0.33056478405315615" />
+        <entry key="..\:/GitHub/DACN/app/src/main/res/layout/fragment_new_add_food.xml" value="0.20729166666666668" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/fragment_search.xml" value="0.2" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/fragment_slideshow.xml" value="0.16510416666666666" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/fragment_user.xml" value="0.320863309352518" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/fragment_user_update.xml" value="0.4" />
+        <entry key="..\:/GitHub/DACN/app/src/main/res/layout/layout_popup_addnew_typefood.xml" value="0.20729166666666668" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/layout/nav_header_menu.xml" value="0.16510416666666666" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/menu/activity_main_drawer.xml" value="0.536" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/menu/menu.xml" value="0.2" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.18125" />
         <entry key="..\:/GitHub/DACN/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.18125" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/drawable/bordertop.xml" value="0.3828125" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/drawable/circle.xml" value="0.3828125" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/drawable/circle2.xml" value="0.3828125" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/drawable/circle3.xml" value="0.3828125" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/drawable/ic__back_add_red.xml" value="0.3828125" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/drawable/ic_account.xml" value="0.3828125" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/drawable/ic_add.xml" value="0.3828125" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/drawable/ic_add_black.xml" value="0.3828125" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/drawable/ic_add_red.xml" value="0.3828125" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/drawable/ic_back.xml" value="0.3828125" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/drawable/ic_menu_vertical_1.xml" value="0.3828125" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/drawable/round_add_pic.xml" value="0.3828125" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/drawable/round_addfood.xml" value="0.3828125" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/drawable/round_bgadd.xml" value="0.3828125" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/drawable/round_bgaddbutton.xml" value="0.221875" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/drawable/round_bgbutton.xml" value="0.3828125" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/drawable/round_border.xml" value="0.3828125" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/drawable/round_info.xml" value="0.3828125" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/drawable/round_popup1.xml" value="0.221875" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/drawable/round_popup2.xml" value="0.221875" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/drawable/round_textinput_add.xml" value="0.3828125" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/drawable/search_bg.xml" value="0.3828125" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/drawable/side_nav_bar.xml" value="0.3828125" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/activity_login.xml" value="0.20572916666666666" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/activity_main.xml" value="0.34601449275362317" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/activity_menu.xml" value="0.34601449275362317" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/activity_menu_food.xml" value="0.34601449275362317" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/activity_register.xml" value="0.34601449275362317" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/activity_user.xml" value="0.34601449275362317" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/app_bar_menu.xml" value="0.34601449275362317" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/card_favorite.xml" value="0.28940217391304346" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/card_foodtype.xml" value="0.28940217391304346" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/card_listfood.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/card_listmaterial.xml" value="0.33" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/card_liststep.xml" value="0.3509963768115942" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/content_menu.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/fragment_add_food.xml" value="0.29163582531458176" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/fragment_change_pass.xml" value="0.34601449275362317" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/fragment_food.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/fragment_gallery.xml" value="0.34601449275362317" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/fragment_home.xml" value="0.34601449275362317" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/fragment_list_food.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/fragment_search.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/fragment_slideshow.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/fragment_text_new_add_food.xml" value="0.33" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/fragment_user.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/fragment_user_update.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/layout_popup_addnew_material.xml" value="0.33" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/layout_popup_addnew_typefood.xml" value="0.33" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/layout/nav_header_menu.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/menu/menu.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/menu/popup_menu_foodtype.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/menu/popup_menu_material.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/DACN006/app/src/main/res/menu/popup_menu_step.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/PC/AndroidStudioProjects/DACN02/app/src/main/res/layout/fragment_user.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/phong/AndroidStudioProjects/DACN015/app/src/main/res/drawable/ic_country.xml" value="0.375" />
         <entry key="..\:/Users/phong/AndroidStudioProjects/DACN015/app/src/main/res/drawable/ic_phone.xml" value="0.375" />
