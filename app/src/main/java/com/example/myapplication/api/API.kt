@@ -111,7 +111,7 @@ interface API {
     fun getTop6():Call<FoodMostLikes>
 
     //Search Food
-    @POST("searchByName")
+    @GET("searchByName")
     fun getListFood(
         @Query("txtSearchName") searchChar:String?=null
     ):Call<ListFoodSearch>

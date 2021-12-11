@@ -128,7 +128,7 @@ class SearchFragment : Fragment() {
                 response: Response<ListFoodSearch>
             ) {
                 val data = response.body()
-                if(data.data!!.list!!.size == 0){
+                if(data.data!!.list!!.isEmpty()){
                     noFound.isVisible = true
                     recyclerViewFoods.isVisible = false
                 }else{

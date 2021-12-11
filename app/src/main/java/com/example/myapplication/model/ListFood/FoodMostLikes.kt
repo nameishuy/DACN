@@ -4,7 +4,7 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 class FoodMostLikes {
-    @SerializedName("list6Foods")
+    @SerializedName("foods")
     @Expose
         var top6:List<toplikeFood>?=null
 
