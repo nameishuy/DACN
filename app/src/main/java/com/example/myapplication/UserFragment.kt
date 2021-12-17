@@ -200,7 +200,7 @@ class UserFragment : Fragment() {
             btnChangePassWord.visibility = View.VISIBLE
             btnUpdateInfo.visibility = View.VISIBLE
             // Thay đổi ở đây (Chỉ hiện thêm addFood button khi RoleUser là 1 )
-            if(RoleUser!!.toInt() == 2){
+            if(RoleUser!!.toInt() == 1){
                 btnAddFood.visibility = View.VISIBLE
             }else{
                 btnAddFood.visibility = View.INVISIBLE
