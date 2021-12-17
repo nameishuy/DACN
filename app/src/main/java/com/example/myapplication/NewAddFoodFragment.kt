@@ -96,7 +96,7 @@ class NewAddFoodFragment : Fragment() {
             for(item in glbl.ListStep){
                 Step = Step+"\r\n"+item
             }
-            Log.e("Detail",""+Step)
+            Log.e("Kiem Tra Detail",""+Step)
             AddNewFood()
         }
         view.btnChooseImage.setOnClickListener {
