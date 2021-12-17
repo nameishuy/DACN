@@ -147,99 +147,123 @@ class FoodFragment : Fragment() {
                     }
                 })
 
-                // set event click of like button
-                favoriteButton.setOnClickListener {
-                    if(flag == false){
-                        favoriteIcon.setColorFilter(resources.getColor(R.color.orange))
-                        var likeChange:Int = data.data!!.infoFood!!.totallike!!+1
-                        titleFavoriteButton.text = "Đã Thích (" + likeChange + ")"
-
-                        //Call API to update Total Like of this Food
-                        var success:Call<ResponseSuccess> = retro.updateTotalLike(idFood,likeChange)
-                        success.enqueue(object :retrofit2.Callback<ResponseSuccess>{
-                            override fun onResponse(
-                                call: Call<ResponseSuccess>,
-                                responseSuccess: Response<ResponseSuccess>
-                            ) {
-                                Log.e("announce",responseSuccess.body().msg.toString())
-                            }
-
-                            override fun onFailure(
-                                call: Call<ResponseSuccess>,
-                                t: Throwable
-                            ) {
-                                TODO("Not yet implemented")
-                            }
-                        })
-
-                        //Call API to add Food in List Favorite of User.
-                        val add = addFavorite()
-                        add.foodId = idFood
-                        add.idUser = glbl.id!!.toInt()
-                        add.name = null
-                        retro.addFavorite(add).enqueue(object :retrofit2.Callback<ResponseSuccess>{
-                            override fun onResponse(
-                                call: Call<ResponseSuccess>,
-                                response: Response<ResponseSuccess>
-                            ) {
-                                Log.e("announce",response.body().msg.toString())
-                            }
-
-                            override fun onFailure(call: Call<ResponseSuccess>, t: Throwable) {
-                                TODO("Not yet implemented")
-                            }
-                        })
-
-                        titleFavoriteButton.setTextColor(resources.getColor(R.color.orange))
-                        flag = true
-                    }else{
-                        favoriteIcon.setColorFilter(null)
-                        var likeChange:Int = data.data!!.infoFood!!.totallike!!-1
-                        titleFavoriteButton.text = "Thích (" + likeChange + ")"
-
-                        //Call API to update Total Like of this Food
-                        var success:Call<ResponseSuccess> = retro.updateTotalLike(idFood,likeChange)
-                        success.enqueue(object :retrofit2.Callback<ResponseSuccess>{
-                            override fun onResponse(
-                                call: Call<ResponseSuccess>,
-                                responseSuccess: Response<ResponseSuccess>
-                            ) {
-                                Log.e("announce",responseSuccess.body().msg.toString())
-                            }
-
-                            override fun onFailure(
-                                call: Call<ResponseSuccess>,
-                                t: Throwable
-                            ) {
-                                TODO("Not yet implemented")
-                            }
-                        })
-
-                        //Call API to Remove Food in Favorite.
-                        var remove:Call<ResponseSuccess> = retro.removeFavorite(idFood,glbl.id!!.toInt())
-                        remove.enqueue(object :retrofit2.Callback<ResponseSuccess>{
-                            override fun onResponse(
-                                call: Call<ResponseSuccess>,
-                                response: Response<ResponseSuccess>
-                            ) {
-                                Log.e("announce",response.body().msg.toString())
-                            }
-
-                            override fun onFailure(call: Call<ResponseSuccess>, t: Throwable) {
-                                TODO("Not yet implemented")
-                            }
-                        })
-
-                        titleFavoriteButton.setTextColor(resources.getColor(R.color.black))
-                        flag = false
-                    }
-                }
             }
 
             override fun onFailure(call: Call<FoodResponse>, t: Throwable) {
 
             }
         })
+        // set event click of like button
+        favoriteButton.setOnClickListener {
+            if(flag == false){
+                var food:Call<FoodResponse> = retro.getDetail(idFood)
+                food.enqueue(object :retrofit2.Callback<FoodResponse>{
+                    override fun onResponse(
+                        call: Call<FoodResponse>,
+                        response: Response<FoodResponse>
+                    ) {
+                        favoriteIcon.setColorFilter(resources.getColor(R.color.orange))
+                        var likeChange:Int = response.body().data!!.infoFood!!.totallike!!+1
+                        titleFavoriteButton.text = "Đã Thích (" + likeChange + ")"
+                        titleFavoriteButton.setTextColor(resources.getColor(R.color.orange))
+
+                        //Call API to update Total Like of this Food
+                        var success:Call<ResponseSuccess> = retro.updateTotalLike(idFood,likeChange)
+                        success.enqueue(object :retrofit2.Callback<ResponseSuccess>{
+                            override fun onResponse(
+                                call: Call<ResponseSuccess>,
+                                responseSuccess: Response<ResponseSuccess>
+                            ) {
+                                Log.e("announce",responseSuccess.body().msg.toString())
+                            }
+
+                            override fun onFailure(
+                                call: Call<ResponseSuccess>,
+                                t: Throwable
+                            ) {
+                                TODO("Not yet implemented")
+                            }
+                        })
+                    }
+
+                    override fun onFailure(call: Call<FoodResponse>, t: Throwable) {
+                        TODO("Not yet implemented")
+                    }
+                })
+
+
+                //Call API to add Food in List Favorite of User.
+                val add = addFavorite()
+                add.foodId = idFood
+                add.idUser = glbl.id!!.toInt()
+                add.name = null
+                retro.addFavorite(add).enqueue(object :retrofit2.Callback<ResponseSuccess>{
+                    override fun onResponse(
+                        call: Call<ResponseSuccess>,
+                        response: Response<ResponseSuccess>
+                    ) {
+                        Log.e("announce",response.body().msg.toString())
+                    }
+
+                    override fun onFailure(call: Call<ResponseSuccess>, t: Throwable) {
+                        TODO("Not yet implemented")
+                    }
+                })
+
+                flag = true
+            }else{
+                var food:Call<FoodResponse> = retro.getDetail(idFood)
+                food.enqueue(object :retrofit2.Callback<FoodResponse>{
+                    override fun onResponse(
+                        call: Call<FoodResponse>,
+                        response: Response<FoodResponse>
+                    ) {
+                        favoriteIcon.setColorFilter(null)
+                        var likeChange:Int = response.body().data!!.infoFood!!.totallike!!-1
+                        titleFavoriteButton.text = "Thích (" + likeChange + ")"
+                        titleFavoriteButton.setTextColor(resources.getColor(R.color.black))
+
+                        //Call API to update Total Like of this Food
+                        var success:Call<ResponseSuccess> = retro.updateTotalLike(idFood,likeChange)
+                        success.enqueue(object :retrofit2.Callback<ResponseSuccess>{
+                            override fun onResponse(
+                                call: Call<ResponseSuccess>,
+                                responseSuccess: Response<ResponseSuccess>
+                            ) {
+                                Log.e("announce",responseSuccess.body().msg.toString())
+                            }
+
+                            override fun onFailure(
+                                call: Call<ResponseSuccess>,
+                                t: Throwable
+                            ) {
+                                TODO("Not yet implemented")
+                            }
+                        })
+                    }
+
+                    override fun onFailure(call: Call<FoodResponse>, t: Throwable) {
+                        TODO("Not yet implemented")
+                    }
+                })
+
+                //Call API to Remove Food in Favorite.
+                var remove:Call<ResponseSuccess> = retro.removeFavorite(idFood,glbl.id!!.toInt())
+                remove.enqueue(object :retrofit2.Callback<ResponseSuccess>{
+                    override fun onResponse(
+                        call: Call<ResponseSuccess>,
+                        response: Response<ResponseSuccess>
+                    ) {
+                        Log.e("announce",response.body().msg.toString())
+                    }
+
+                    override fun onFailure(call: Call<ResponseSuccess>, t: Throwable) {
+                        TODO("Not yet implemented")
+                    }
+                })
+                flag = false
+            }
+        }
     }
 
     companion object {
