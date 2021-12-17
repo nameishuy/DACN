@@ -104,8 +104,8 @@ class RecyclerViewAdapterStep(private val listStepNum:ArrayList<Int>, private va
                     for (i in 0 until glbl!!.ListStep.size) {
                         ListPos.add(i+1)
                     }
-                    Toast.makeText(context,"Cập nhật hoàn tất"
-                        ,Toast.LENGTH_LONG).show()
+                    Toast.makeText(context,"Cập nhật hoàn tất",Toast.LENGTH_LONG).show()
+                    notifyDataSetChanged()
                 }catch (e:IndexOutOfBoundsException){
                     Toast.makeText(context,"Vui lòng chọn hoàn thành trước khi cập nhật"
                         ,Toast.LENGTH_LONG).show()

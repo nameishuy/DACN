@@ -128,15 +128,23 @@ class RecyclerViewAdapterMaterial(private val list:ArrayList<Int>,private var gl
             }
             if(id==1){
                 try {
-                    Log.e("Pos",": "+pos)
+                    var FlagChoose:Boolean =false
                     val newFood = addFoodPost.recipe()
-                    newFood.pstMaterialId =ChooseMaterialId
+                    for (item in glbl!!.ListMaterialId){
+                        if(item.equals(ChooseMaterialId)==true){
+                            FlagChoose =true
+                            break
+                        }
+                    }
+                    if(FlagChoose ==false){
+                        newFood.pstMaterialId =ChooseMaterialId
+                        glbl!!.ListNameChooseMaterial.set(pos,ChooseMaterialName.toString())
+                    }
                     newFood.pstQuantity = inputStringQuatity
                     glbl?.ListMaterialQuatity?.set(pos,newFood)
                     glbl?.ListQuatity?.set(pos,inputStringQuatity.toString())
-                    glbl!!.ListNameChooseMaterial.set(pos,ChooseMaterialName.toString())
-                    Toast.makeText(context,"Cập nhật hoàn tất"
-                        ,Toast.LENGTH_LONG).show()
+                    Toast.makeText(context,"Cập nhật hoàn tất",Toast.LENGTH_LONG).show()
+                    notifyDataSetChanged()
                 }catch (e:IndexOutOfBoundsException){
                     Toast.makeText(context,"Vui lòng chọn hoàn thành trước khi cập nhật"
                         ,Toast.LENGTH_LONG).show()

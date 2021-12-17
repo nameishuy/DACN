@@ -63,19 +63,10 @@ class ChangePassFragment : Fragment() {
     }
     private fun ChangePass(){
         var Flag:Boolean =true
-        val UserName = inputUserNameChangPass.text.toString().trim()
         val OldPass = inputOldPassword.text.toString().trim()
         val NewPass = inputNewPassword.text.toString().trim()
         val ConfirmNewPass=inputNewPasswordConfirm.text.toString().trim()
         // Kiểm tra ràng buộc
-        if (UserName.isEmpty()){
-            inputUserNameChangPass.error = "Tài khoản bị bỏ trống"
-            inputUserNameChangPass.requestFocus()
-            YoYo.with(Techniques.Shake)
-                .duration(700)
-                .playOn(inputUserNameChangPass)
-            Flag =false
-        }
         if (OldPass.isEmpty()){
             inputOldPassword.error = "Vui lòng nhập mật khẩu củ"
             inputOldPassword.requestFocus()
@@ -111,11 +102,11 @@ class ChangePassFragment : Fragment() {
                 .playOn(inputNewPasswordConfirm)
             Flag =false
         }
-
+        Log.e("IdUser",""+ idUser!!.toInt())
         if(Flag==true){
             val retro = Retro().getRetroClientInstance().create(API::class.java)
             val newPass =ChangePassPost(""+OldPass,""+NewPass,""+ConfirmNewPass)
-            retro.ChangePass(""+UserName,newPass).enqueue(object :Callback<ChangePassPost>{
+            retro.ChangePass(idUser!!.toInt(),newPass).enqueue(object :Callback<ChangePassPost>{
                 override fun onResponse(
                     call: Call<ChangePassPost>?,
                     response: Response<ChangePassPost>?

@@ -102,7 +102,7 @@ interface API {
     //Change Pass
     @POST("changePassword")
     fun ChangePass(
-        @Query("username") PstUserName:String? =null,
+        @Query("id") PstIdUser:Int? =null,
         @Body changePass:ChangePassPost
     ):Call<ChangePassPost>
 
