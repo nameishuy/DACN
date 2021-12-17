@@ -537,6 +537,7 @@ class NewAddFoodFragment : Fragment() {
                         if(response.isSuccessful){
                             Toast.makeText(activity,"Thêm Thành Công"
                                 , Toast.LENGTH_LONG).show()
+                            ReturnHome()
                             ProgressMain.visibility =View.INVISIBLE
                         }else{
                             Toast.makeText(activity,"Thêm Thất Bại",Toast.LENGTH_LONG).show()

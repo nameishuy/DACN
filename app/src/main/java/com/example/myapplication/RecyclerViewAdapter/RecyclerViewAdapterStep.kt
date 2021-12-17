@@ -31,8 +31,8 @@ class RecyclerViewAdapterStep(private val listStepNum:ArrayList<Int>, private va
     }
 
     override fun onBindViewHolder(holder: RecyclerViewAdapterStep.ViewHolder, position: Int) {
-        holder.itemNumberStep.text = listStepNum[position].toString()
-        Log.e("Postion",""+position)
+        holder.itemNumberStep.text = (holder.adapterPosition+1).toString()
+        Log.e("Postion",""+holder.adapterPosition)
         holder.inputStep.addTextChangedListener(object:TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
@@ -45,12 +45,10 @@ class RecyclerViewAdapterStep(private val listStepNum:ArrayList<Int>, private va
             }
 
         })
-        if(flag == true){
-            try {
-                holder.inputStep.setText(glbl!!.ListStep.elementAt(position))
-            }catch (e:IndexOutOfBoundsException){
-
-            }
+        try {
+            holder.inputStep.setText(glbl!!.ListStep.elementAt(holder.adapterPosition))
+        }catch (e:IndexOutOfBoundsException){
+            holder.inputStep.setText("")
         }
     }
 
@@ -121,7 +119,9 @@ class RecyclerViewAdapterStep(private val listStepNum:ArrayList<Int>, private va
                     ListPos.add(i+1)
                 }
                 flag =true
+                Log.e("After",": notify")
                 notifyDataSetChanged()
+                Log.e("Before",": notify")
                 flag =false
             }
             false

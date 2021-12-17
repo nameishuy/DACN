@@ -34,12 +34,10 @@ class RecyclerViewAdapterMaterial(private val list:ArrayList<Int>,private var gl
     private var ChooseMaterialId:Int = 0
     private var ChooseMaterialName:String? =null
     private var NewMaterialName:String? = null
-    private var inputQuatity:String? = null
+    private var inputStringQuatity:String? = null
     private var flag:Boolean = false
+    private var flag2:Boolean = false
     private var ChoosePostion:Int =0
-
-    private var ListvtMaterial = mutableListOf<Int>()
-
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -51,24 +49,25 @@ class RecyclerViewAdapterMaterial(private val list:ArrayList<Int>,private var gl
 
 
     override fun onBindViewHolder(holder: RecyclerViewAdapterMaterial.ViewHolder, @SuppressLint("RecyclerView") position: Int) {
-        holder.itemNumber.text = list[position].toString()
-        getMaterial(holder.SpinerMaterial,list[position],holder.inputQuatity)
-        ChoosePostion =position
-        Log.e("position",""+position)
+        holder.itemNumber.text = (holder.adapterPosition+1).toString()
         holder.inputQuatity.addTextChangedListener(object :TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                inputQuatity = holder.inputQuatity.text.toString().trim()
+                inputStringQuatity = holder.inputQuatity.text.toString().trim()
             }
 
             override fun afterTextChanged(s: Editable?) {
             }
         })
-        holder.menuItemMaterial.setOnClickListener {
-            popupMaterial(it,position,holder.SpinerMaterial,holder.inputQuatity)
-            flag =false
+
+        try {
+            getMaterial(holder.SpinerMaterial,holder.adapterPosition,true)
+            holder.inputQuatity.setText(glbl!!.ListQuatity.elementAt(holder.adapterPosition))
+            Log.e("Quanty",""+glbl!!.ListQuatity.elementAt(holder.adapterPosition))
+        }catch (e:IndexOutOfBoundsException){
+            holder.inputQuatity.setText("")
         }
     }
 
@@ -86,10 +85,12 @@ class RecyclerViewAdapterMaterial(private val list:ArrayList<Int>,private var gl
             menuItemMaterial =itemView.findViewById(R.id.MenuItemMaterial)
             SpinerMaterial =itemView.findViewById(R.id.SpinnerAMaterial)
             inputQuatity =itemView.findViewById(R.id.inputQuantity)
+            menuItemMaterial.setOnClickListener {
+                popupMaterial(it,adapterPosition,SpinerMaterial,inputQuatity)
+                flag =false
+            }
             addNewMaterial.setOnClickListener {
-                ListvtMaterial.clear()
-                addNewMaterial(SpinerMaterial,adapterPosition,inputQuatity)
-                inputQuatity.setText("")
+                addNewMaterial(SpinerMaterial,adapterPosition)
             }
         }
     }
@@ -106,7 +107,7 @@ class RecyclerViewAdapterMaterial(private val list:ArrayList<Int>,private var gl
             if(id==0){
                 var check:Boolean =false
                 for(item in glbl!!.ListMaterialQuatity){
-                    if(item.pstMaterialId!!.equals(ChooseMaterialId) && item.pstQuantity.equals(inputQuatity)){
+                    if(item.pstMaterialId!!.equals(ChooseMaterialId) && item.pstQuantity.equals(inputStringQuatity)){
                         check =true
                         break
                     }
@@ -114,9 +115,10 @@ class RecyclerViewAdapterMaterial(private val list:ArrayList<Int>,private var gl
                 if(check ==false){
                     val newFood = addFoodPost.recipe()
                     newFood.pstMaterialId =ChooseMaterialId
-                    newFood.pstQuantity = inputQuatity
+                    newFood.pstQuantity = inputStringQuatity
                     glbl?.ListMaterialQuatity?.add(newFood)
-                    glbl!!.ListQuatity.add(inputQuatity.toString())
+
+                    glbl!!.ListQuatity.add(inputStringQuatity.toString())
                     glbl!!.ListNameChooseMaterial.add(ChooseMaterialName.toString())
                     Toast.makeText(context,"Thêm nguyên liêu hoàn tất",Toast.LENGTH_LONG).show()
                 }else{
@@ -129,9 +131,9 @@ class RecyclerViewAdapterMaterial(private val list:ArrayList<Int>,private var gl
                     Log.e("Pos",": "+pos)
                     val newFood = addFoodPost.recipe()
                     newFood.pstMaterialId =ChooseMaterialId
-                    newFood.pstQuantity = inputQuatity
+                    newFood.pstQuantity = inputStringQuatity
                     glbl?.ListMaterialQuatity?.set(pos,newFood)
-                    glbl?.ListQuatity?.set(pos,inputQuatity.toString())
+                    glbl?.ListQuatity?.set(pos,inputStringQuatity.toString())
                     glbl!!.ListNameChooseMaterial.set(pos,ChooseMaterialName.toString())
                     Toast.makeText(context,"Cập nhật hoàn tất"
                         ,Toast.LENGTH_LONG).show()
@@ -144,7 +146,6 @@ class RecyclerViewAdapterMaterial(private val list:ArrayList<Int>,private var gl
                 openPopupAddNewFood(Gravity.CENTER,SpinnerNew,Quatity)
             }
             if(id==3){
-                ListvtMaterial.clear()
                 Log.e("Pos Del",": "+ChoosePostion)
                 glbl?.listMaterialRecyclerView?.removeAt(pos)
                 try {
@@ -156,7 +157,6 @@ class RecyclerViewAdapterMaterial(private val list:ArrayList<Int>,private var gl
                 }
                 Log.e("list Now",": "+list.size)
                 flag =true
-                getMaterial(SpinnerNew,pos,Quatity)
                 notifyDataSetChanged()
             }
             false
@@ -164,7 +164,7 @@ class RecyclerViewAdapterMaterial(private val list:ArrayList<Int>,private var gl
         popupMenuMaterial.show()
     }
 
-    private fun addNewMaterial(SpinnerNew: Spinner,Pos: Int,Quatity: EditText){
+    private fun addNewMaterial(SpinnerNew: Spinner,Pos: Int){
         var NewItem:Int =1
         var check:Boolean =false
         for (item in list){
@@ -174,8 +174,6 @@ class RecyclerViewAdapterMaterial(private val list:ArrayList<Int>,private var gl
                 check =true
                 glbl?.listMaterialRecyclerView?.add(NewItem)
                 saptang(glbl!!.listMaterialRecyclerView)
-                flag =true
-                getMaterial(SpinnerNew,Pos,Quatity)
                 notifyDataSetChanged()
                 break
             }
@@ -183,8 +181,6 @@ class RecyclerViewAdapterMaterial(private val list:ArrayList<Int>,private var gl
         if(check ==false){
             glbl?.listMaterialRecyclerView?.add(NewItem)
             saptang(glbl!!.listMaterialRecyclerView)
-            flag =true
-            getMaterial(SpinnerNew,Pos,Quatity)
             notifyDataSetChanged()
         }
     }
@@ -224,7 +220,7 @@ class RecyclerViewAdapterMaterial(private val list:ArrayList<Int>,private var gl
         dialog.show()
     }
 
-    private fun getMaterial(spinnerMaterial:Spinner,Pos:Int,Quatity: EditText){
+    private fun getMaterial(spinnerMaterial:Spinner,Pos:Int,flag:Boolean){
         val retro = Retro().getRetroClientInstance().create(API::class.java)
         retro.getDataMaterial().enqueue(object : Callback<MaterialResponse> {
             override fun onResponse(
@@ -241,34 +237,15 @@ class RecyclerViewAdapterMaterial(private val list:ArrayList<Int>,private var gl
                             ,android.R.layout.simple_spinner_item, glbl!!.ListMaterial)
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                         spinnerMaterial.adapter = adapter
-                        if(NewMaterialName.equals("")==false){
-                            var PositionNewMaterial = adapter.getPosition(NewMaterialName)
-                            spinnerMaterial.setSelection(PositionNewMaterial)
-                        }
-                        for (item in glbl!!.listMaterialRecyclerView){
-                            Log.e("List Material",""+item)
-                        }
-                        if(flag ==true){
-                            var Dem:Int =0
-                            for (item in ListvtMaterial){
-                                if(item == Dem){
-                                    break
-                                }
-                                Dem++
-                            }
-                            Log.e("POS",""+Pos)
-                            Log.e("Dem",""+Dem)
+                        Log.e("Flag 2",""+flag2)
+                        if(flag == true){
                             try {
-                                var PositionMaterial:Int = adapter.getPosition(glbl!!.ListNameChooseMaterial.elementAt(Dem))
-                                Log.e("Material Name",""+glbl!!.ListNameChooseMaterial.elementAt(Dem))
+                                var PositionMaterial:Int = adapter.getPosition(glbl!!.ListNameChooseMaterial.elementAt(Pos))
+                                Log.e("Material Name",""+glbl!!.ListNameChooseMaterial.elementAt(Pos))
                                 Log.e("Vt trong Spinner",""+PositionMaterial)
                                 spinnerMaterial.setSelection(PositionMaterial)
-                                Quatity.setText(glbl!!.ListQuatity.elementAt(Dem))
                             }catch (e:IndexOutOfBoundsException){
 
-                            }
-                            if(glbl!!.listMaterialRecyclerView.size == Dem+1){
-                                flag =false
                             }
                         }
                         spinnerMaterial.onItemSelectedListener =object :AdapterView.OnItemSelectedListener{
@@ -311,7 +288,7 @@ class RecyclerViewAdapterMaterial(private val list:ArrayList<Int>,private var gl
                         if(response.isSuccessful){
                             Toast.makeText(context,"Thêm Mới Thành Công"
                                 , Toast.LENGTH_LONG).show()
-                            getMaterial(SpinnerNew,-1,Quatity)
+                            getMaterial(SpinnerNew,-1,true)
                             notifyDataSetChanged()
                             Log.e("Thành Công","")
                         }else{
